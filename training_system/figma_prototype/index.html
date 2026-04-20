@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaStorm Agentic Learning — 交互原型</title>
+    <link rel="stylesheet" href="css/design-system.css">
+</head>
+<body>
+    <div class="proto-root">
+        <!-- Navigation -->
+        <nav class="proto-nav">
+            <div class="nav-section">
+                <span class="nav-section-label">角色</span>
+                <button class="role-tab active" data-role="student" onclick="switchRole('student')">👤 学员端</button>
+                <button class="role-tab" data-role="mentor" onclick="switchRole('mentor')">🎓 导师端</button>
+                <button class="role-tab" data-role="manager" onclick="switchRole('manager')">🏢 管理端</button>
+                <button class="role-tab" data-role="admin" onclick="switchRole('admin')">⚙️ 运营端</button>
+            </div>
+            <div class="nav-section">
+                <span class="nav-section-label">页面</span>
+                <div class="page-tabs" id="pageTabs"></div>
+            </div>
+        </nav>
+
+        <!-- Device Canvas -->
+        <div class="proto-canvas">
+            <div class="device-frame" id="deviceFrame">
+                <div class="device-content" id="deviceContent"></div>
+            </div>
+        </div>
+
+        <!-- Info Panel -->
+        <aside class="info-panel">
+            <h3>📋 当前页面说明</h3>
+            <div id="pageInfo">
+                <p>请选择一个角色和页面查看详情</p>
+            </div>
+        </aside>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

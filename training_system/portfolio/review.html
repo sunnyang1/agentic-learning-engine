@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设计评审纪要 — Agentic Learning Engine</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-icon">🎬</div>
+      <span>Agentic Learning</span>
+    </a>
+    <button class="nav-mobile-toggle">☰</button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="prd.html" class="nav-link">PRD</a>
+      <a href="design.html" class="nav-link">方案设计</a>
+      <a href="prototype.html" class="nav-link">交互原型</a>
+      <a href="review.html" class="nav-link active">评审纪要</a>
+      <a href="testing.html" class="nav-link">测试&运营</a>
+    </div>
+  </div>
+</nav>
+
+<header style="padding-top: 120px; padding-bottom: 60px; background: var(--gradient-hero);">
+  <div class="container">
+    <div class="hero-badge reveal">
+      <span class="hero-badge-dot"></span>
+      <span>3 轮评审 · 24 个问题闭环</span>
+    </div>
+    <h1 class="hero-title reveal">设计评审方法论</h1>
+    <p class="hero-subtitle reveal">
+      建立四维度评审框架，每轮评审聚焦架构可行性、性能达标性、Prompt 预研必要性、AI 准确率现实性。形成「评审→修正→新版本→再评审」的标准化闭环。
+    </p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="heading-sm reveal">评审框架</div>
+    <h2 class="section-title reveal">四维度评审法</h2>
+
+    <div class="grid-4">
+      <div class="card reveal">
+        <div style="font-size: 28px; margin-bottom: var(--s4);">🏗</div>
+        <div class="card-title mb-2">架构可行性</div>
+        <div class="card-desc">
+          技术选型是否匹配飞书生态？新增模块与现有架构的耦合度？数据模型是否能支撑业务场景？
+        </div>
+      </div>
+      <div class="card reveal">
+        <div style="font-size: 28px; margin-bottom: var(--s4);">⚡</div>
+        <div class="card-title mb-2">性能达标性</div>
+        <div class="card-desc">
+          延迟指标是否可验证？新增调用链路的延迟预算是否拆分？飞书 Webhook 固有延迟是否考虑？
+        </div>
+      </div>
+      <div class="card reveal">
+        <div style="font-size: 28px; margin-bottom: var(--s4);">📝</div>
+        <div class="card-title mb-2">Prompt 预研必要性</div>
+        <div class="card-desc">
+          新增 AI 生成场景是否已纳入 Prompt 管理？三阶段评估机制（离线→验证→全量）是否覆盖？
+        </div>
+      </div>
+      <div class="card reveal">
+        <div style="font-size: 28px; margin-bottom: var(--s4);">🎯</div>
+        <div class="card-title mb-2">AI 准确率现实性</div>
+        <div class="card-desc">
+          预测 Agent/自动评估的准确率预期是否有基准数据？规则层命中率是否设定保守基线？
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-elevated);">
+  <div class="container">
+    <div class="heading-sm reveal">评审结果汇总</div>
+    <h2 class="section-title reveal">三轮评审，24 个问题全部闭环</h2>
+
+    <table class="data-table reveal">
+      <thead>
+        <tr>
+          <th>轮次</th>
+          <th>评审对象</th>
+          <th>发现问题</th>
+          <th>已修正</th>
+          <th>遗留</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>第一轮</strong></td>
+          <td>方案设计 v1.0</td>
+          <td>8 个（2 P0 + 6 P1）</td>
+          <td>8/8 ✅</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td><strong>第二轮</strong></td>
+          <td>方案设计 v2.0</td>
+          <td>8 个（2 P0 + 6 P1）</td>
+          <td>8/8 ✅</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td><strong>第三轮</strong></td>
+          <td>方案设计 v4.0</td>
+          <td>8 个（1 P0 + 6 P1 + 1 P2）</td>
+          <td>8/8 ✅</td>
+          <td>0</td>
+        </tr>
+        <tr style="background: var(--accent-glow);">
+          <td><strong>累计</strong></td>
+          <td>—</td>
+          <td><strong>24 个</strong></td>
+          <td><strong>24/24 ✅</strong></td>
+          <td><strong>0</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="heading-sm reveal">典型问题案例</div>
+    <h2 class="section-title reveal">从问题发现到闭环修正</h2>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🔴</div>
+          <div class="card-title">P0 案例：性能指标下调</div>
+          <span class="tag tag-red">P0</span>
+        </div>
+        <div class="card-desc">
+          <strong>问题</strong>：方案将需求中的规则引擎延迟 < 100ms 调整为 < 200ms，未解释原因。<br><br>
+          <strong>根因</strong>：飞书 Webhook 固有延迟 500ms-2s，内部执行 < 200ms 已接近极限。<br><br>
+          <strong>修正</strong>：拆分为两层指标——内部执行延迟 + 端到端延迟，并解释与需求差距的根因。建议 Phase 2 评估将规则引擎部署在飞书应用引擎内的优化方案。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🔴</div>
+          <div class="card-title">P0 案例：新增模块未纳入路线图</div>
+          <span class="tag tag-red">P0</span>
+        </div>
+        <div class="card-desc">
+          <strong>问题</strong>：v4.0 新增 360度评估、等级认证、导师激励 3 个模块（164行设计），但未在路线图和 MVP 中排期。<br><br>
+          <strong>根因</strong>：需求跟踪矩阵评审要求补充设计，但未同步更新实施计划。<br><br>
+          <strong>修正</strong>：v4.1 明确排期（360度评估 Month 3-4、认证/激励 Month 4-5），总工期从 28周调整至 33周。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🟡</div>
+          <div class="card-title">P1 案例：预测 Agent 命中率基准缺失</div>
+          <span class="tag tag-yellow">P1</span>
+        </div>
+        <div class="card-desc">
+          <strong>问题</strong>：规则层（硬阈值）的典型命中率 40-60%，但需求目标 >60%，MVP 可能不达标。<br><br>
+          <strong>修正</strong>：设定保守基线 45-55%，明确 Phase 2 轻量模型（XGBoost）目标 ≥60%，需 4 个月+100+样本训练数据。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🟡</div>
+          <div class="card-title">P1 案例：轻量 RAG 延迟未拆分</div>
+          <span class="tag tag-yellow">P1</span>
+        </div>
+        <div class="card-desc">
+          <strong>问题</strong>：Phase 1 用飞书云文档搜索+关键词索引替代 RAG，但未设定延迟预算和命中率目标。<br><br>
+          <strong>修正</strong>：增加延迟预算表（关键词命中路径内部<3.2s/端到端<5s，目标命中率>70%；降级路径内部<5s/端到端<7s）。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-elevated);">
+  <div class="container">
+    <div class="heading-sm reveal">评审效率</div>
+    <h2 class="section-title reveal">方法论沉淀</h2>
+
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="stat-value">24</div>
+        <div class="stat-label">累计发现问题</div>
+      </div>
+      <div class="card reveal">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">闭环修正率</div>
+      </div>
+      <div class="card reveal">
+        <div class="stat-value">5</div>
+        <div class="stat-label">文档版本迭代</div>
+      </div>
+    </div>
+
+    <div class="card reveal mt-8">
+      <div class="card-title mb-4">标准化评审流程</div>
+      <div class="card-desc">
+        <pre style="background: var(--bg); border: 1px solid var(--border);">评审输入 → 四维度检查（架构/性能/Prompt/准确率）
+    ↓
+问题分级（P0阻断/P1重要/P2建议）
+    ↓
+根因分析 + 影响评估 + 修正方案 + 工时估算
+    ↓
+产出评审纪要 → 修订方案设计 → 新版本发布
+    ↓
+下一轮评审验证修正质量 + 识别新风险</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p><a href="../设计评审纪要_v3.md" style="color: var(--accent-light);">🔍 查看最新评审纪要 v3.0</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户旅程 1：小夏的入职 Day 0-30</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #0f0f1a;
+            color: #c0c0d0;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: #3370FF; text-decoration: none; font-size: 14px;
+            margin-bottom: 24px; padding: 8px 0;
+        }
+        .back-link:hover { text-decoration: underline; }
+        h1 { font-size: 28px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+        .subtitle { color: #8f8fa0; font-size: 15px; margin-bottom: 40px; }
+
+        .timeline { position: relative; padding-left: 48px; }
+        .timeline::before {
+            content: ''; position: absolute; left: 19px; top: 0; bottom: 0;
+            width: 2px; background: linear-gradient(180deg, #3370FF, #7B61FF);
+        }
+
+        .step {
+            position: relative; margin-bottom: 40px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px; padding: 28px;
+        }
+        .step::before {
+            content: attr(data-day); position: absolute; left: -55px; top: 28px;
+            width: 36px; height: 36px; border-radius: 50%; background: #3370FF;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 11px; font-weight: 700;
+            border: 3px solid #0f0f1a;
+        }
+        .step-header {
+            display: flex; justify-content: space-between; align-items: flex-start;
+            margin-bottom: 16px; flex-wrap: wrap; gap: 8px;
+        }
+        .step-title { font-size: 18px; font-weight: 600; color: #fff; }
+        .step-tag {
+            padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 500;
+        }
+        .tag-system { background: rgba(51,112,255,0.15); color: #7aa3ff; }
+        .tag-agent { background: rgba(123,97,255,0.15); color: #b8a8ff; }
+        .tag-mentor { background: rgba(255,107,107,0.15); color: #ffb3b3; }
+        .tag-user { background: rgba(52,199,89,0.15); color: #7ee8a0; }
+        .step-desc { font-size: 14px; color: #a0a0b0; line-height: 1.8; margin-bottom: 20px; }
+        .step-desc strong { color: #7aa3ff; }
+
+        .mock-screen {
+            background: #fff; border-radius: 12px; padding: 16px;
+            color: #1F2329; font-size: 13px; line-height: 1.6;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .mock-msg {
+            background: #f5f6f7; padding: 10px 14px; border-radius: 12px;
+            margin: 6px 0; max-width: 90%;
+        }
+        .mock-msg.agent { border-bottom-left-radius: 4px; }
+        .mock-msg.user { margin-left: auto; background: #E8F1FF; border-bottom-right-radius: 4px; max-width: 80%; }
+        .mock-card {
+            background: #f8f9fa; border: 1px solid #DEE0E3; border-radius: 10px;
+            padding: 12px; margin: 8px 0; font-size: 12px; color: #646A73;
+        }
+        .arrow { text-align: center; color: #3370FF; font-size: 20px; margin: 4px 0; }
+
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .highlight-box {
+            padding: 12px; border-radius: 8px; margin-top: 12px;
+        }
+        .highlight-blue { background: #E8F1FF; color: #245BDB; }
+        .highlight-orange { background: #FFF7E6; color: #E68600; }
+        .highlight-red { background: #FFF2F0; color: #E04344; }
+        .highlight-green { background: #E6FFED; color: #2DAF4D; }
+
+        .milestone {
+            text-align: center; padding: 32px;
+            background: linear-gradient(135deg, #3370FF, #7B61FF);
+            border-radius: 16px; color: #fff;
+        }
+        .milestone .icon { font-size: 48px; margin-bottom: 12px; }
+        .milestone h3 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px; }
+        .stat-card { background: rgba(255,255,255,0.1); border-radius: 10px; padding: 12px; }
+        .stat-value { font-size: 24px; font-weight: 700; }
+        .stat-label { font-size: 12px; opacity: 0.8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回原型主页</a>
+        <h1>🎯 用户旅程 1：小夏的入职 Day 0-30</h1>
+        <p class="subtitle">角色：学员（新人剪辑师）| 目标：从入职到独立产出项目</p>
+
+        <div class="timeline">
+            <!-- Day 0 -->
+            <div class="step" data-day="D0">
+                <div class="step-header">
+                    <div class="step-title">入职第一天 · 收到第一条 AI 学习消息</div>
+                    <span class="step-tag tag-system">系统触发</span>
+                </div>
+                <div class="step-desc">
+                    小夏完成入职手续后，飞书自动收到来自「AI 学习教练」的第一条消息。
+                    <strong>Orchestrator</strong> 检测到新用户事件，自动触发
+                    <strong>诊断 Agent</strong> 的基础评估 + <strong>内容 Agent</strong> 的初始路径组装。
+                </div>
+                <div class="mock-screen">
+                    <div class="mock-msg agent">
+                        <strong>欢迎加入 MediaStorm！</strong> 🎉<br><br>
+                        我是你的 AI 学习教练。我已经为你准备好了个性化的入门计划。<br><br>
+                        📋 <strong>本周任务</strong>（预计 2 小时）：<br>
+                        1️⃣ MediaStorm 品牌规范学习（30分钟）<br>
+                        2️⃣ 达芬奇基础操作速通（45分钟）<br>
+                        3️⃣ 观看 3 条标杆案例（30分钟）<br>
+                        4️⃣ 完成「首测」评估你的起点（15分钟）<br><br>
+                        <button style="background:#3370FF;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;">开始首测 →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 1 -->
+            <div class="step" data-day="D1">
+                <div class="step-header">
+                    <div class="step-title">入职第二天 · 完成首测，Agent 组装学习路径</div>
+                    <span class="step-tag tag-agent">诊断 Agent</span>
+                </div>
+                <div class="step-desc">
+                    小夏完成「首测」后，<strong>诊断 Agent</strong> 分析结果：技术 L2.0（有基础），
+                    审美 L1.5（需提升），内容 L1.0（完全新手）。<strong>内容 Agent</strong> 据此组装专属学习路径。
+                </div>
+                <div class="mock-screen">
+                    <div class="mock-msg agent">
+                        <strong>首测完成！</strong> 📊<br><br>
+                        你的能力画像已生成：
+                        <div class="mock-card">
+                            🔧 技术能力 <strong>L2.0</strong>（有基础，达芬奇操作熟练）<br>
+                            🎨 审美能力 <strong>L1.5</strong>（需提升画面节奏感）<br>
+                            📝 内容理解 <strong>L1.0</strong>（网感和叙事逻辑待加强）<br>
+                            🤝 协作能力 <strong>L3.0</strong>（优秀，沟通能力强）<br><br>
+                            💡 <strong>诊断建议：</strong>你的技术底子不错，但「网感」和「叙事」是最大短板。
+                        </div>
+                        <button style="background:#3370FF;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;margin-top:8px;">查看我的学习路径 →</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="step" data-day="D3">
+                <div class="step-header">
+                    <div class="step-title">入职第 3 天 · 每日推送 + 苏格拉底对话</div>
+                    <span class="step-tag tag-agent">Coach Agent</span>
+                </div>
+                <div class="step-desc">
+                    早 9 点，<strong>内容 Agent</strong> 推送今日学习套餐。学完课程后，
+                    <strong>Coach Agent</strong> 主动发起苏格拉底式对话，引导思考而非直接给答案。
+                </div>
+                <div class="mock-screen">
+                    <div class="mock-msg agent">📋 <strong>今日学习套餐</strong>（预计 25 分钟）<br>核心目标：提升「网感」</div>
+                    <div class="arrow">↓</div>
+                    <div class="mock-msg user">学完了，前3秒钩子确实很重要</div>
+                    <div class="arrow">↓</div>
+                    <div class="mock-msg agent">
+                        很好！那我问你：<br>
+                        <em>"假设你要剪一条手机评测视频，前3秒画面是手机特写，没有台词。你觉得观众此刻在想什么？"</em>
+                    </div>
+                    <div class="arrow">↓</div>
+                    <div class="mock-msg user">嗯...可能在想"这是什么手机？值不值得看下去？"</div>
+                    <div class="arrow">↓</div>
+                    <div class="mock-msg agent">
+                        🎉 <strong>完全正确！</strong><br>
+                        ✅ 思考深度评分：8.5/10 | 📈 网感理解 +0.3 级
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 7 -->
+            <div class="step" data-day="D7">
+                <div class="step-header">
+                    <div class="step-title">入职第 7 天 · 第一次作品提交，Agent 预审 + 导师点评</div>
+                    <span class="step-tag tag-mentor">人机协作</span>
+                </div>
+                <div class="step-desc">
+                    小夏提交第一个练习作品。<strong>诊断 Agent</strong> 自动预审：技术检查通过，
+                    但创意层面需要导师介入。导师阿杰在 Agent 预审报告基础上添加创意点评，节省 30 分钟基础检查时间。
+                </div>
+                <div class="mock-screen">
+                    <div class="two-col">
+                        <div>
+                            <div style="color:#3370FF;font-weight:600;margin-bottom:8px;">🤖 Agent 预审报告</div>
+                            <div class="mock-card">
+                                ✅ 品牌规范：通过<br>
+                                ✅ 导出设置：通过<br>
+                                ⚠️ 字幕样式：02:15 处大小不统一<br>
+                                ✅ 技术完整性：通过<br><br>
+                                💡 创意关注点：<br>
+                                情感段落节奏与参考案例差异较大，
+                                学员「情感叙事」能力 L1.8。
+                            </div>
+                        </div>
+                        <div>
+                            <div style="color:#FF6B6B;font-weight:600;margin-bottom:8px;">🎓 导师阿杰的点评</div>
+                            <div class="mock-card">
+                                技术层面没问题，重点说创意：<br><br>
+                                1️⃣ 情感转折时机：00:45 处转折太突然<br><br>
+                                2️⃣ B-roll/A-roll 比例：目前 1:2，建议 3:1<br><br>
+                                下次目标：重点练习情感段落的节奏把控
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 12 -->
+            <div class="step" data-day="D12">
+                <div class="step-header">
+                    <div class="step-title">入职第 12 天 · 卡顿预警 + Agent 关怀</div>
+                    <span class="step-tag tag-agent">预测 Agent</span>
+                </div>
+                <div class="step-desc">
+                    <strong>预测 Agent</strong> 监测到小夏在「达芬奇调色」模块停留了 45 分钟（平均 15 分钟），
+                    触发关怀消息。同时预测 Agent 评估小夏流失风险从「低」升至「中」，通知导师阿杰关注。
+                </div>
+                <div class="mock-screen">
+                    <div class="mock-msg agent">
+                        <div style="display:inline-flex;align-items:center;gap:4px;background:#FFF7E6;color:#E68600;padding:2px 8px;border-radius:4px;font-size:11px;margin-bottom:8px;">⚠️ 关怀提醒</div><br>
+                        我注意到你昨天在《达芬奇调色》模块停留了 <strong>45 分钟</strong>，平均学员只用 15 分钟。<br><br>
+                        是不是遇到瓶颈了？我推荐了一个 <strong>5 分钟简化版流程</strong>。
+                    </div>
+                    <div class="arrow">↓</div>
+                    <div class="highlight-box highlight-red">
+                        <div style="font-weight:600;margin-bottom:4px;">🔴 导师通知</div>
+                        <div style="font-size:12px;">
+                            小夏（你的学员）在「调色」模块连续卡壳，
+                            Agent 已发送关怀消息但未收到回复。建议主动联系了解状况。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 15 -->
+            <div class="step" data-day="D15">
+                <div class="step-header">
+                    <div class="step-title">入职第 15 天 · 进入真实项目，实战 Agent 陪伴</div>
+                    <span class="step-tag tag-agent">实战 Agent</span>
+                </div>
+                <div class="step-desc">
+                    小夏被分配到一个真实项目（科技评测视频剪辑）。<strong>实战 Agent</strong>
+                    实时监测工作流，在关键时刻提供即时指导。学员不需要离开工作场景就能获得帮助。
+                </div>
+                <div class="mock-screen">
+                    <div class="mock-msg agent">
+                        <div style="display:inline-flex;align-items:center;gap:4px;background:#E6FFED;color:#2DAF4D;padding:2px 8px;border-radius:4px;font-size:11px;margin-bottom:8px;">🛠 实战 Agent</div><br>
+                        检测到你在 02:30 处停留了 8 分钟。<br><br>
+                        这个段落涉及 <strong>「情感转折 + B-roll 穿插」</strong>，
+                        恰好是你上周的薄弱项。需要我帮你回忆一下相关技巧吗？<br><br>
+                        <button style="background:#3370FF;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;">帮我回忆技巧</button>
+                        <button style="background:#f5f5f5;color:#646A73;border:none;padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;">不用，我自己来</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 20 -->
+            <div class="step" data-day="D20">
+                <div class="step-header">
+                    <div class="step-title">入职第 20 天 · 学完即测，Pending Pool 题目</div>
+                    <span class="step-tag tag-system">AI Assessment</span>
+                </div>
+                <div class="step-desc">
+                    小夏完成「网感」专题课程。<strong>AI Assessment Generator</strong> 检测到课程内容变动 >30%，
+                    自动生成 8 道测试题进入 Pending Pool。Owner 阿杰审阅后发布，小夏学完即测。
+                </div>
+                <div class="mock-screen">
+                    <div class="two-col">
+                        <div>
+                            <div style="color:#8F959E;font-weight:600;margin-bottom:8px;">📋 Pending Pool 流程</div>
+                            <div class="mock-card">
+                                1. AI 检测到课程变动 >30%<br>
+                                2. 自动生成 8 道测试题<br>
+                                3. 进入 Pending Pool「待审」<br>
+                                4. Owner（阿杰）审阅通过<br>
+                                5. 状态变为「已发布」<br>
+                                6. 小夏学完即测 ✅
+                            </div>
+                        </div>
+                        <div>
+                            <div style="color:#3370FF;font-weight:600;margin-bottom:8px;">📝 小夏正在做的测试题</div>
+                            <div class="mock-card">
+                                <strong>Q3/8：</strong>以下两个标题，哪个更适合情感类纪录片？<br><br>
+                                A. "故乡的味道：一碗面的记忆"<br>
+                                B. "这碗面让我哭了三个小时"<br><br>
+                                ✅ 正确率 7/8 | ⏱️ 用时 12 分钟
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 30 -->
+            <div class="step" data-day="D30">
+                <div class="step-header">
+                    <div class="step-title">入职第 30 天 · 能力飞跃，银牌剪辑师候选</div>
+                    <span class="step-tag tag-user">里程碑</span>
+                </div>
+                <div class="step-desc">
+                    30 天后，小夏的能力从 L1.5 提升至 L2.3。<strong>预测 Agent</strong> 评估 3 周后可达银牌标准（L2.5）。
+                    导师阿杰的时间投入从每天 2 小时降至每周 2 小时（节省 85%）。
+                </div>
+                <div class="milestone">
+                    <div class="icon">🥈</div>
+                    <h3>银牌剪辑师 · 候选</h3>
+                    <div style="font-size:14px;opacity:0.9;">
+                        当前等级 L2.3 | 预计 3 周后达标 L2.5<br>
+                        独立完成 2 个真实项目剪辑 | 作品预审通过 85%
+                    </div>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <div class="stat-value" style="color:#7ee8a0;">+0.8</div>
+                            <div class="stat-label">能力提升</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" style="color:#7aa3ff;">85%</div>
+                            <div class="stat-label">导师时间节省</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" style="color:#FFD700;">2周</div>
+                            <div class="stat-label">提前独立产出</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

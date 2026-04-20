@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>测试 & 数据 & 运营 — Agentic Learning Engine</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-icon">🎬</div>
+      <span>Agentic Learning</span>
+    </a>
+    <button class="nav-mobile-toggle">☰</button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="prd.html" class="nav-link">PRD</a>
+      <a href="design.html" class="nav-link">方案设计</a>
+      <a href="prototype.html" class="nav-link">交互原型</a>
+      <a href="review.html" class="nav-link">评审纪要</a>
+      <a href="testing.html" class="nav-link active">测试&运营</a>
+    </div>
+  </div>
+</nav>
+
+<header style="padding-top: 120px; padding-bottom: 60px; background: var(--gradient-hero);">
+  <div class="container">
+    <div class="hero-badge reveal">
+      <span class="hero-badge-dot"></span>
+      <span>753 行测试 + 690 行埋点 + 528 行运营</span>
+    </div>
+    <h1 class="hero-title reveal">测试 · 数据 · 运营</h1>
+    <p class="hero-subtitle reveal">
+      覆盖功能测试、性能测试、安全测试、兼容性测试的完整用例体系；4 层数据埋点方案；以及冷启动、内容库建设、用户运营、数据驱动迭代的运营策略。
+    </p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="heading-sm reveal">测试体系</div>
+    <h2 class="section-title reveal">753 行测试用例</h2>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">✅</div>
+          <div class="card-title">功能测试</div>
+        </div>
+        <div class="card-desc">
+          <strong>Agent 功能验证</strong>：诊断Agent作品分析准确性、CoachAgent苏格拉底对话质量、内容Agent路径完成率、预测Agent风险预警触发率<br><br>
+          <strong>Workflow 验证</strong>：学员入职初始化、每日推送定时触发、季度评估审批流、等级认证晋升触发<br><br>
+          <strong>集成测试</strong>：Agent 协作冲突、Orchestrator 调度正确性、Memory 读写一致性
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">⚡</div>
+          <div class="card-title">性能测试</div>
+        </div>
+        <div class="card-desc">
+          <strong>延迟测试</strong>：规则引擎内部 < 200ms、端到端 < 2s（80%场景）、LLM 推理 < 3s<br><br>
+          <strong>并发测试</strong>：50 人并发高峰期、飞书 API 限流场景、异步队列削峰效果<br><br>
+          <strong>稳定性测试</strong>：7×24 小时持续运行、LLM 供应商故障降级、飞书服务不可用降级
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🛡</div>
+          <div class="card-title">安全测试</div>
+        </div>
+        <div class="card-desc">
+          <strong>数据隐私</strong>：学员作品访问权限、能力数据脱敏、决策日志审计<br><br>
+          <strong>API 安全</strong>：飞书 Token 有效期、百炼 API Key 保护、Webhook 签名验证<br><br>
+          <strong>内容安全</strong>：LLM 输出过滤、敏感词检测、版权合规检查
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">📱</div>
+          <div class="card-title">兼容性测试</div>
+        </div>
+        <div class="card-desc">
+          <strong>设备兼容</strong>：飞书 iOS / Android / PC / Mac / Web<br><br>
+          <strong>网络兼容</strong>：弱网环境（3G）、断网恢复、VPN 环境<br><br>
+          <strong>版本兼容</strong>：飞书客户端版本差异、百炼模型版本升级
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-elevated);">
+  <div class="container">
+    <div class="heading-sm reveal">数据埋点</div>
+    <h2 class="section-title reveal">4 层埋点体系</h2>
+
+    <table class="data-table reveal">
+      <thead>
+        <tr>
+          <th>层级</th>
+          <th>埋点类型</th>
+          <th>用途</th>
+          <th>示例</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>L1 基础</strong></td>
+          <td>页面浏览 / 点击 / 停留</td>
+          <td>用户行为分析</td>
+          <td>课程页面停留时长、按钮点击率</td>
+        </tr>
+        <tr>
+          <td><strong>L2 业务</strong></td>
+          <td>学习行为 / Agent 交互</td>
+          <td>产品功能优化</td>
+          <td>路径完成率、Coach 对话深度评分</td>
+        </tr>
+        <tr>
+          <td><strong>L3 转化</strong></td>
+          <td>能力增长 / 晋升 / 留存</td>
+          <td>业务价值验证</td>
+          <td>新人独立产出周期、导师时间节省率</td>
+        </tr>
+        <tr>
+          <td><strong>L4 系统</strong></td>
+          <td>API 延迟 / 错误率 / 成本</td>
+          <td>技术运维监控</td>
+          <td>百炼 API 响应时间、飞书 API 限流触发次数</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="grid-3 mt-8">
+      <div class="card reveal">
+        <div class="stat-value">32+</div>
+        <div class="stat-label">核心指标定义</div>
+      </div>
+      <div class="card reveal">
+        <div class="stat-value">4</div>
+        <div class="stat-label">埋点层级</div>
+      </div>
+      <div class="card reveal">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">敏感字段脱敏</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="heading-sm reveal">运营方案</div>
+    <h2 class="section-title reveal">AARRR 增长模型 + 冷启动策略</h2>
+
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🚀</div>
+          <div class="card-title">获取（Acquisition）</div>
+        </div>
+        <div class="card-desc">
+          <strong>种子用户</strong>：选择 2-3 名积极的新人试点<br>
+          <strong>导师招募</strong>：优先说服时间最紧张的导师（展示"时间节省"价值）<br>
+          <strong>内部推广</strong>：Demo Day 演示 + 导师口碑传播
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">✨</div>
+          <div class="card-title">激活（Activation）</div>
+        </div>
+        <div class="card-desc">
+          <strong>Aha Moment</strong>：学员首次完成"苏格拉底对话"并感受到思考深度提升<br>
+          <strong>导师 Aha</strong>：首次体验 Agent 预审节省 30 分钟<br>
+          <strong>引导策略</strong>：入职首日 1 对 1 系统介绍 + 第 3 天主动回访
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">📈</div>
+          <div class="card-title">留存（Retention）</div>
+        </div>
+        <div class="card-desc">
+          <strong>习惯养成</strong>：每日早 9 点推送（固定时间锚点）<br>
+          <strong>进度可视化</strong>：能力雷达图实时更新 + 成就徽章<br>
+          <strong>流失预警</strong>：连续 2 天未登录 → 关怀消息 → 导师介入
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">💰</div>
+          <div class="card-title">收入（Revenue）</div>
+        </div>
+        <div class="card-desc">
+          <strong>成本节约</strong>：导师时间节省折算人力成本<br>
+          <strong>效率提升</strong>：新人产出周期缩短带来的项目产能提升<br>
+          <strong>淘汰率降低</strong>：从 10% → 5% 节省的招聘/培训成本
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">📣</div>
+          <div class="card-title">推荐（Referral）</div>
+        </div>
+        <div class="card-desc">
+          <strong>导师推荐</strong>：导师向其他导师展示"节省的时间"<br>
+          <strong>学员推荐</strong>：优秀学员分享成长故事<br>
+          <strong>案例输出</strong>：定期发布"学员成长案例"到内部知识库
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">📚</div>
+          <div class="card-title">内容库建设</div>
+        </div>
+        <div class="card-desc">
+          <strong>生产方式</strong>：资深员工口述 → Agent 辅助整理 → 结构化文档<br>
+          <strong>已有素材</strong>：飞书妙记自动转录 → Agent 提取知识点<br>
+          <strong>更新频率</strong>：案例拆解每月 ≥2 个，课程每季度 ≥1 门
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-elevated);">
+  <div class="container">
+    <div class="heading-sm reveal">运营成本</div>
+    <h2 class="section-title reveal">¥200-500/月 平稳期</h2>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="card-title mb-4">LLM 调用成本</div>
+        <table class="data-table">
+          <thead>
+            <tr><th>场景</th><th>日均</th><th>月成本</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Coach Agent 对话</td><td>50次</td><td>~¥15</td></tr>
+            <tr><td>诊断 Agent 作品分析</td><td>5次</td><td>~¥8</td></tr>
+            <tr><td>内容 Agent 路径组装</td><td>20次</td><td>~¥9</td></tr>
+            <tr><td>AI Assessment 出题</td><td>2次</td><td>~¥5</td></tr>
+            <tr><td><strong>总计</strong></td><td>—</td><td><strong>~¥40</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card reveal">
+        <div class="card-title mb-4">基础设施成本</div>
+        <table class="data-table">
+          <thead>
+            <tr><th>服务</th><th>月成本</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>阿里云函数计算</td><td>¥100-300</td></tr>
+            <tr><td>阿里云 OSS（100GB）</td><td>¥50-100</td></tr>
+            <tr><td>飞书企业版</td><td>¥0（已购买）</td></tr>
+            <tr><td><strong>总计</strong></td><td><strong>¥150-400</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card reveal mt-8">
+      <div class="card-title mb-4">成本控制措施</div>
+      <div class="card-desc">
+        1. <strong>LLM 预算告警</strong>：月成本超过 ¥1,000 时触发告警<br>
+        2. <strong>异常调用检测</strong>：单次调用 Token 超过阈值时记录并告警<br>
+        3. <strong>模型降级策略</strong>：默认使用 qwen-turbo，复杂场景降级到 qwen-plus<br>
+        4. <strong>缓存命中率监控</strong>：目标 >60%，低于 40% 时优化缓存策略
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>
+      <a href="../测试用例.md" style="color: var(--accent-light);">🧪 测试用例</a> · 
+      <a href="../数据埋点.md" style="color: var(--accent-light);">📊 数据埋点</a> · 
+      <a href="../运营方案.md" style="color: var(--accent-light);">📈 运营方案</a>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

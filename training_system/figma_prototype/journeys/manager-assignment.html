@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户旅程 3：Lisa 的智能派活</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #0f0f1a; color: #c0c0d0;
+            min-height: 100vh; line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: #3370FF; text-decoration: none; font-size: 14px; margin-bottom: 24px; }
+        h1 { font-size: 28px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+        .subtitle { color: #8f8fa0; font-size: 15px; margin-bottom: 40px; }
+
+        .step {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px; padding: 28px;
+            margin-bottom: 24px;
+        }
+        .step-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 16px;
+        }
+        .step-title { font-size: 18px; font-weight: 600; color: #fff; }
+        .step-tag {
+            padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 500;
+        }
+        .tag-input { background: rgba(51,112,255,0.15); color: #7aa3ff; }
+        .tag-ai { background: rgba(123,97,255,0.15); color: #b8a8ff; }
+        .tag-action { background: rgba(52,199,89,0.15); color: #7ee8a0; }
+
+        .step-desc { font-size: 14px; color: #a0a0b0; line-height: 1.8; margin-bottom: 16px; }
+        .step-desc strong { color: #7aa3ff; }
+
+        .mock-screen {
+            background: #fff; border-radius: 12px; padding: 20px;
+            color: #1F2329; font-size: 13px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .arrow-down { text-align: center; color: #3370FF; font-size: 24px; margin: 12px 0; }
+
+        .form-row {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+            margin-bottom: 16px;
+        }
+        .form-field label {
+            display: block; font-size: 12px; font-weight: 500; color: #646A73;
+            margin-bottom: 6px;
+        }
+        .form-field select {
+            width: 100%; border: 1px solid #DEE0E3; border-radius: 8px;
+            padding: 10px 12px; font-size: 13px; background: #fff;
+        }
+
+        .match-card {
+            border: 1px solid #DEE0E3; border-radius: 12px; padding: 16px;
+            margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start;
+        }
+        .match-card.best { border: 2px solid #3370FF; background: #F5F8FF; }
+        .match-avatar {
+            width: 52px; height: 52px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 20px; font-weight: 600; flex-shrink: 0;
+        }
+        .match-info { flex: 1; }
+        .match-name { font-size: 15px; font-weight: 600; }
+        .match-meta { font-size: 12px; color: #8F959E; margin-top: 2px; }
+        .match-score {
+            text-align: center; flex-shrink: 0;
+        }
+        .match-score .num {
+            font-size: 28px; font-weight: 700;
+        }
+        .match-score .num.best { color: #3370FF; }
+        .match-score .num.good { color: #34C759; }
+        .match-score .num.ok { color: #FF9500; }
+        .match-reason {
+            margin-top: 10px; padding: 10px; background: #F5F6F7;
+            border-radius: 8px; font-size: 12px; color: #646A73; line-height: 1.7;
+        }
+        .match-reason.best { background: #E8F1FF; color: #245BDB; }
+
+        .radar-mini {
+            display: flex; gap: 8px; margin-top: 8px;
+        }
+        .skill-pill {
+            padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 500;
+        }
+        .skill-high { background: #E6FFED; color: #2DAF4D; }
+        .skill-mid { background: #E8F1FF; color: #245BDB; }
+        .skill-low { background: #FFF7E6; color: #E68600; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回原型主页</a>
+        <h1>🏢 用户旅程 3：Lisa 的智能派活</h1>
+        <p class="subtitle">角色：制片人（Lisa）| 目标：基于能力图谱，精准匹配人员与项目</p>
+
+        <!-- Step 1: Input -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-title">Step 1：输入项目需求</div>
+                <span class="step-tag tag-input">人工输入</span>
+            </div>
+            <div class="step-desc">
+                Lisa 接到一个「情感类纪录片」商单，需要在 3 天内完成初剪。
+                她打开智能派活界面，输入项目基本信息。
+            </div>
+            <div class="mock-screen">
+                <div style="font-size:16px;font-weight:600;margin-bottom:16px;">🎯 智能派活</div>
+                <div class="form-row">
+                    <div class="form-field">
+                        <label>项目类型</label>
+                        <select><option>情感类纪录片</option></select>
+                    </div>
+                    <div class="form-field">
+                        <label>风格要求</label>
+                        <select><option>慢节奏叙事</option></select>
+                    </div>
+                    <div class="form-field">
+                        <label>难度等级</label>
+                        <select><option>银牌及以上</option></select>
+                    </div>
+                </div>
+                <div style="display:flex;gap:8px;">
+                    <button style="background:#3370FF;color:#fff;border:none;padding:10px 20px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:500;">🔍 智能匹配</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow-down">↓</div>
+
+        <!-- Step 2: AI Matching -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-title">Step 2：Agent 查询能力图谱，生成推荐</div>
+                <span class="step-tag tag-ai">AI 匹配</span>
+            </div>
+            <div class="step-desc">
+                <strong>诊断 Agent</strong> 查询全员能力图谱，<strong>预测 Agent</strong> 评估当前负荷。
+                系统返回 3 位最佳匹配人员，按匹配度排序，并展示详细的匹配理由。
+                匹配算法：能力匹配 60% + 负荷 30% + 相似项目经验 10%。
+            </div>
+            <div class="mock-screen">
+                <div style="font-size:16px;font-weight:600;margin-bottom:16px;">推荐结果（按匹配度排序）</div>
+
+                <!-- Match 1 -->
+                <div class="match-card best">
+                    <div class="match-avatar" style="background:linear-gradient(135deg,#3370FF,#7B61FF);">杰</div>
+                    <div class="match-info">
+                        <div class="match-name">阿杰 <span style="font-size:12px;color:#3370FF;font-weight:500;">剪辑指导 L4.0</span></div>
+                        <div class="match-meta">擅长：快节奏科技评测 · 3年经验 · 20+百万播放作品</div>
+                        <div class="radar-mini">
+                            <span class="skill-pill skill-high">技术 L4.0</span>
+                            <span class="skill-pill skill-high">审美 L4.0</span>
+                            <span class="skill-pill skill-mid">叙事 L3.5</span>
+                            <span class="skill-pill skill-mid">负荷 75%</span>
+                        </div>
+                        <div class="match-reason best">
+                            <strong>匹配理由：</strong>技术能力 L4.0 远超要求（L3.0+）；审美能力 L4.0，擅长快节奏剪辑；当前负荷 75%，有承接能力；历史同类项目成功率 95%。
+                        </div>
+                    </div>
+                    <div class="match-score">
+                        <div class="num best">92%</div>
+                        <div style="font-size:12px;color:#8F959E;">匹配度</div>
+                    </div>
+                </div>
+
+                <!-- Match 2 -->
+                <div class="match-card">
+                    <div class="match-avatar" style="background:linear-gradient(135deg,#34C759,#20C997);">林</div>
+                    <div class="match-info">
+                        <div class="match-name">小林 <span style="font-size:12px;color:#34C759;font-weight:500;">银牌 L3.0</span></div>
+                        <div class="match-meta">擅长：叙事逻辑 · 2年经验 · 情感类项目专家</div>
+                        <div class="radar-mini">
+                            <span class="skill-pill skill-mid">技术 L3.0</span>
+                            <span class="skill-pill skill-high">叙事 L3.8</span>
+                            <span class="skill-pill skill-high">情感 L3.5</span>
+                            <span class="skill-pill skill-high">负荷 60%</span>
+                        </div>
+                        <div class="match-reason">
+                            叙事逻辑 L3.8，情感类项目成功率 90%；当前负荷 60%，时间充裕；适合需要强叙事能力的项目。
+                        </div>
+                    </div>
+                    <div class="match-score">
+                        <div class="num good">88%</div>
+                        <div style="font-size:12px;color:#8F959E;">匹配度</div>
+                    </div>
+                </div>
+
+                <!-- Match 3 -->
+                <div class="match-card">
+                    <div class="match-avatar" style="background:linear-gradient(135deg,#FF9500,#FF6B6B);">夏</div>
+                    <div class="match-info">
+                        <div class="match-name">小夏 <span style="font-size:12px;color:#FF9500;font-weight:500;">铜牌 L2.2</span></div>
+                        <div class="match-meta">新人 · 入职12天 · 网感进步快</div>
+                        <div class="radar-mini">
+                            <span class="skill-pill skill-low">技术 L2.5</span>
+                            <span class="skill-pill skill-mid">网感 L2.3</span>
+                            <span class="skill-pill skill-low">叙事 L1.8</span>
+                            <span class="skill-pill skill-high">负荷 30%</span>
+                        </div>
+                        <div class="match-reason" style="background:#FFF7E6;color:#E68600;">
+                            ⚠️ 等级低于要求（要求银牌 L2.5+），但网感进步快。建议作为辅助剪辑或安排导师带教。
+                        </div>
+                    </div>
+                    <div class="match-score">
+                        <div class="num ok">65%</div>
+                        <div style="font-size:12px;color:#8F959E;">匹配度</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow-down">↓</div>
+
+        <!-- Step 3: Confirm -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-title">Step 3：一键确认，自动执行</div>
+                <span class="step-tag tag-action">执行</span>
+            </div>
+            <div class="step-desc">
+                Lisa 选择阿杰（92% 匹配度），一键确认后，<strong>Orchestrator</strong> 自动执行后续流程：
+                创建项目群、发送通知、更新项目数据库、关联能力图谱追踪。
+            </div>
+            <div class="mock-screen">
+                <div style="background:#E6FFED;border-radius:10px;padding:20px;text-align:center;">
+                    <div style="font-size:36px;margin-bottom:12px;">✅</div>
+                    <div style="font-size:16px;font-weight:600;color:#2DAF4D;margin-bottom:8px;">派活成功！</div>
+                    <div style="font-size:13px;color:#646A73;line-height:1.8;">
+                        项目「情感类纪录片-故乡的味道」已分配给 <strong>阿杰</strong><br>
+                        系统已自动执行以下操作：<br>
+                        1️⃣ 创建项目协作群（阿杰 + Lisa + 客户对接人）<br>
+                        2️⃣ 发送飞书通知给阿杰<br>
+                        3️⃣ 在项目数据库中记录分配信息<br>
+                        4️⃣ 关联能力图谱，项目完成后自动更新阿杰的项目经历
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow-down">↓</div>
+
+        <!-- Before/After -->
+        <div class="step">
+            <div class="step-header">
+                <div class="step-title">效果对比：v1.0 凭印象 → v2.0 智能匹配</div>
+                <span class="step-tag tag-action">效果</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                <div style="background:#fff;border-radius:12px;padding:20px;color:#1F2329;">
+                    <div style="font-size:14px;font-weight:600;color:#FF4D4F;margin-bottom:12px;">❌ v1.0 凭印象派活</div>
+                    <div style="font-size:13px;line-height:2;color:#646A73;">
+                        • 凭记忆选择剪辑师<br>
+                        • 频繁 mismatch（风格不符）<br>
+                        • 返工率高达 25%<br>
+                        • 改了三版才发现有人更适合<br>
+                        • 派活决策无据可查
+                    </div>
+                </div>
+                <div style="background:#fff;border-radius:12px;padding:20px;color:#1F2329;">
+                    <div style="font-size:14px;font-weight:600;color:#34C759;margin-bottom:12px;">✅ v2.0 智能匹配</div>
+                    <div style="font-size:13px;line-height:2;color:#646A73;">
+                        • 输入需求 → 3秒出推荐<br>
+                        • 匹配度量化（92%/88%/65%）<br>
+                        • 返工率降至 8%<br>
+                        • 能力雷达图直观对比<br>
+                        • 每次派活自动记录到能力图谱
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

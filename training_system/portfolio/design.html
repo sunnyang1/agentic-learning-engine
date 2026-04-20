@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>方案设计 — Agentic Learning Engine</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-icon">🎬</div>
+      <span>Agentic Learning</span>
+    </a>
+    <button class="nav-mobile-toggle">☰</button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="prd.html" class="nav-link">PRD</a>
+      <a href="design.html" class="nav-link active">方案设计</a>
+      <a href="prototype.html" class="nav-link">交互原型</a>
+      <a href="review.html" class="nav-link">评审纪要</a>
+      <a href="testing.html" class="nav-link">测试&运营</a>
+    </div>
+    <a href="../方案设计_v4.1.md" class="nav-cta">📐 完整方案</a>
+  </div>
+</nav>
+
+<header style="padding-top: 120px; padding-bottom: 60px; background: var(--gradient-hero);">
+  <div class="container">
+    <div class="hero-badge reveal">
+      <span class="hero-badge-dot"></span>
+      <span>1,852 行 · v4.1（三轮评审后冻结版）</span>
+    </div>
+    <h1 class="hero-title reveal">系统方案设计</h1>
+    <p class="hero-subtitle reveal">
+      从 v1.0 到 v4.1 的五轮迭代，覆盖总体架构、详细模块、数据架构、技术选型、接口设计、实施计划与风险应对。已闭环修正 24 个设计问题。
+    </p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="heading-sm reveal">版本演进</div>
+    <h2 class="section-title reveal">五轮迭代，24 个问题闭环</h2>
+
+    <table class="data-table reveal">
+      <thead>
+        <tr>
+          <th>版本</th>
+          <th>日期</th>
+          <th>关键变更</th>
+          <th>行数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>v1.0</td>
+          <td>04-19</td>
+          <td>初始版本，四层 Memory 架构</td>
+          <td>1,245</td>
+        </tr>
+        <tr>
+          <td>v2.0</td>
+          <td>04-20</td>
+          <td>第一轮评审：Memory 两层 MVP、性能指标调整、Prompt 版本管理、AI Assessment 分层</td>
+          <td>1,458</td>
+        </tr>
+        <tr>
+          <td>v3.0</td>
+          <td>04-21</td>
+          <td>第二轮评审：Cold Storage 分层、Phase 3 拆分、Tier1/2/3 自动化、运营成本附录</td>
+          <td>1,576</td>
+        </tr>
+        <tr>
+          <td>v4.0</td>
+          <td>04-21</td>
+          <td>需求跟踪矩阵：轻量 RAG、360度评估、等级认证、导师激励、预测 Agent MVP</td>
+          <td>1,786</td>
+        </tr>
+        <tr>
+          <td><strong>v4.1</strong></td>
+          <td>04-21</td>
+          <td><strong>第三轮评审：路线图排期、权重公式、命中率基线、状态校验、JSON→子表</strong></td>
+          <td><strong>1,852</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-elevated);">
+  <div class="container">
+    <div class="heading-sm reveal">技术架构</div>
+    <h2 class="section-title reveal">飞书原生优先 + 分层解耦</h2>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">⚡</div>
+          <div class="card-title">性能指标（两层拆分）</div>
+        </div>
+        <div class="card-desc">
+          <strong>内部执行延迟</strong>：规则引擎 < 200ms，LLM 推理 < 3s<br>
+          <strong>端到端延迟</strong>：规则 < 2s（80%场景），LLM < 5s（20%场景）<br>
+          <strong>说明</strong>：端到端包含飞书 Webhook 固有延迟 500ms-2s。异步模式下用户感知 < 3s（先返回"处理中"）。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🛡</div>
+          <div class="card-title">风险应对</div>
+        </div>
+        <div class="card-desc">
+          <strong>Agent 幻觉</strong>：RAG 强制检索 + Human-in-the-Loop + 置信度阈值<br>
+          <strong>Agent 协作冲突</strong>：Orchestrator 统一仲裁 + 预测 Agent > 内容 Agent<br>
+          <strong>LLM 供应商故障</strong>：降级模式 + 多供应商备选（百炼/豆包/Claude）<br>
+          <strong>飞书 API 限流</strong>：异步队列削峰 + 本地缓存 + 批量写入
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">📦</div>
+          <div class="card-title">Cold Storage 分层</div>
+        </div>
+        <div class="card-desc">
+          <strong>类型A</strong>：结构化数据 → 飞书多维表格（Agent 决策日志、行为埋点）<br>
+          <strong>类型B</strong>：非结构化数据 → 飞书云文档（对话记录、作品分析、案例拆解）<br>
+          <strong>类型C</strong>：归档数据 → 阿里云 OSS（超 6 个月历史数据）
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🔗</div>
+          <div class="card-title">飞书生态集成矩阵</div>
+        </div>
+        <div class="card-desc">
+          <strong>多维表格</strong>：状态存储 / Memory 结构化 / 决策日志 / Pending Pool<br>
+          <strong>云文档</strong>：课程内容 / 非结构化记忆 / Skill Document<br>
+          <strong>妙记</strong>：直播转录 / 知识点提取 / 题目生成<br>
+          <strong>审批</strong>：晋升申请 / 季度评价 / 题目审阅<br>
+          <strong>机器人</strong>：Agent 主动推送 / Coach 对话界面<br>
+          <strong>智能伙伴</strong>：Coach Agent 底层 LLM / 语义检索<br>
+          <strong>应用引擎</strong>：Workflow 编排 / Tool Registry API 封装
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="heading-sm reveal">新增模块（v4.0→v4.1）</div>
+    <h2 class="section-title reveal">360° 评估 · 等级认证 · 导师激励</h2>
+
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">📋</div>
+          <div class="card-title">季度 360° 评估</div>
+          <span class="tag tag-accent">新增</span>
+        </div>
+        <div class="card-desc">
+          <strong>权重</strong>：自评 25% + 导师 50% + Agent 数据 12.5% + 作品 12.5%<br><br>
+          <strong>流程</strong>：季度初飞书待办推送 → 学员自评问卷 → 导师评价审批流 → Agent 数据自动汇总 → 计算总分 → 季度成长报告 → 触发晋升审核<br><br>
+          <strong>公式</strong>：<code>final_score = self×0.25 + mentor×0.50 + agent×0.125 + work×0.125</code>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🏅</div>
+          <div class="card-title">等级认证体系</div>
+          <span class="tag tag-accent">新增</span>
+        </div>
+        <div class="card-desc">
+          <strong>四级</strong>：L1助理 → L2铜牌 → L3银牌 → L4金牌<br><br>
+          <strong>L2 要求</strong>：能力平均 ≥2.0 / 项目 ≥3 个 / 通过季度 Review<br>
+          <strong>L3 要求</strong>：能力平均 ≥3.0 / 项目 ≥8 个 / 带教 ≥20h<br>
+          <strong>L4 要求</strong>：能力平均 ≥4.0 / 项目 ≥15 个 / 带教 ≥50h<br><br>
+          <strong>状态校验</strong>：能力图谱 = "已发布" 才触发晋升，防止误触发
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">💎</div>
+          <div class="card-title">导师激励积分制</div>
+          <span class="tag tag-accent">新增</span>
+        </div>
+        <div class="card-desc">
+          <strong>积分规则</strong>：辅导 1h +10分 / 预审通过 +2分 / 案例拆解 +20分 / 学员晋升 +50分<br><br>
+          <strong>兑换</strong>：100分 = 1天培训预算 / 500分 = 半天调休 / 1000分 = 年度大奖提名<br><br>
+          <strong>技术</strong>：MentorPointsHistory 子表（替代 JSON），飞书自动化多表关联统计
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-elevated);">
+  <div class="container">
+    <div class="heading-sm reveal">实施计划</div>
+    <h2 class="section-title reveal">33 周分阶段路线图</h2>
+
+    <table class="data-table reveal">
+      <thead>
+        <tr>
+          <th>阶段</th>
+          <th>时间</th>
+          <th>目标</th>
+          <th>核心交付</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Phase 0a</strong></td>
+          <td>Month -0.5</td>
+          <td>技术熟悉</td>
+          <td>飞书开发规范 + Workflow 模板</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 0b</strong></td>
+          <td>Month 0</td>
+          <td>内容库建设</td>
+          <td>MVP 内容集合（3课程+3案例+资源包）</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 1</strong></td>
+          <td>Month 1-2</td>
+          <td>Agent 基础设施</td>
+          <td>Orchestrator + Memory + Tool Registry + 诊断Agent + 预测Agent规则层</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 2</strong></td>
+          <td>Month 3-4</td>
+          <td>Agent 能力扩展</td>
+          <td>CoachAgent + 内容Agent + 预测Agent轻量模型 + AI Assessment</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 2扩展</strong></td>
+          <td>Month 4-5</td>
+          <td>认证与激励</td>
+          <td>360度评估 + 等级认证 + 导师激励</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 3a</strong></td>
+          <td>Month 5</td>
+          <td>Memory 扩展</td>
+          <td>Procedural Memory + External Knowledge 语义 RAG</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 3b</strong></td>
+          <td>Month 6</td>
+          <td>实战 Agent 深度集成</td>
+          <td>PR/AE 插件或飞书侧边栏</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 4</strong></td>
+          <td>Month 7-12</td>
+          <td>持续优化</td>
+          <td>预测模型训练 + 跨系统集成 + Agent 市场</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p><a href="../方案设计_v4.1.md" style="color: var(--accent-light);">📐 查看完整方案设计 v4.1（1,852 行）</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

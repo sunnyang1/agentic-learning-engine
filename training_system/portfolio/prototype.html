@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>交互原型 — Agentic Learning Engine</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .proto-iframe-wrapper {
+      width: 100%;
+      height: calc(100vh - 64px);
+      border: none;
+      margin-top: 64px;
+    }
+    .proto-fallback {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      height: 60vh; text-align: center; padding: var(--s10);
+    }
+    .proto-tabs {
+      display: flex; gap: var(--s2); padding: var(--s4) var(--s6);
+      background: var(--bg-elevated); border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+    }
+    .proto-tab {
+      padding: var(--s2) var(--s4); border-radius: var(--r-sm);
+      background: transparent; border: 1px solid var(--border);
+      color: var(--text-secondary); font-size: 13px; cursor: pointer;
+      white-space: nowrap; transition: all 0.2s;
+    }
+    .proto-tab:hover, .proto-tab.active {
+      border-color: var(--accent); color: var(--accent-light); background: var(--accent-glow);
+    }
+  </style>
+</head>
+<body style="overflow: hidden;">
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-icon">🎬</div>
+      <span>Agentic Learning</span>
+    </a>
+    <button class="nav-mobile-toggle">☰</button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="prd.html" class="nav-link">PRD</a>
+      <a href="design.html" class="nav-link">方案设计</a>
+      <a href="prototype.html" class="nav-link active">交互原型</a>
+      <a href="review.html" class="nav-link">评审纪要</a>
+      <a href="testing.html" class="nav-link">测试&运营</a>
+    </div>
+  </div>
+</nav>
+
+<div class="proto-tabs">
+  <button class="proto-tab active" onclick="loadProto('../figma_prototype/index.html')">🎮 完整原型（13页）</button>
+  <button class="proto-tab" onclick="loadProto('../figma_prototype/journeys/student-onboarding.html')">👤 旅程1：小夏入职</button>
+  <button class="proto-tab" onclick="loadProto('../figma_prototype/journeys/mentor-workflow.html')">🎓 旅程2：阿杰带教</button>
+  <button class="proto-tab" onclick="loadProto('../figma_prototype/journeys/manager-assignment.html')">🏢 旅程3：Lisa派活</button>
+</div>
+
+<iframe id="protoFrame" class="proto-iframe-wrapper" src="../figma_prototype/index.html"></iframe>
+
+<script>
+function loadProto(url) {
+  document.getElementById('protoFrame').src = url;
+  document.querySelectorAll('.proto-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>

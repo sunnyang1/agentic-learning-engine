@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRD — Agentic Learning Engine</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-icon">🎬</div>
+      <span>Agentic Learning</span>
+    </a>
+    <button class="nav-mobile-toggle">☰</button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">首页</a>
+      <a href="prd.html" class="nav-link active">PRD</a>
+      <a href="design.html" class="nav-link">方案设计</a>
+      <a href="prototype.html" class="nav-link">交互原型</a>
+      <a href="review.html" class="nav-link">评审纪要</a>
+      <a href="testing.html" class="nav-link">测试&运营</a>
+    </div>
+    <a href="../training_system_PRD.md" class="nav-cta">📄 完整PRD</a>
+  </div>
+</nav>
+
+<header style="padding-top: 120px; padding-bottom: 60px; background: var(--gradient-hero);">
+  <div class="container">
+    <div class="hero-badge reveal">
+      <span class="hero-badge-dot"></span>
+      <span>2,324 行 · v2.0</span>
+    </div>
+    <h1 class="hero-title reveal">产品需求文档</h1>
+    <p class="hero-subtitle reveal">
+      基于 MediaStorm 真实业务场景，定义从新人入职到能力认证的全流程产品需求。涵盖 6 大 Agent、4 层 Memory、3 条用户旅程、以及完整的 KPI 指标体系。
+    </p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="heading-sm reveal">核心功能模块</div>
+    <h2 class="section-title reveal">6 大 Agent × 4 层 Memory</h2>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🩺</div>
+          <div class="card-title">诊断 Agent（Diagnostic Agent）</div>
+          <span class="tag tag-accent">P0</span>
+        </div>
+        <div class="card-desc">
+          <strong>能力CT扫描仪</strong>。入职前48h收集作品 → Day 1 LLM 多维度分析（节奏感/调色/字幕/叙事）→ 3道微场景测试 → 生成能力缺口热力图 + 个性化新手村路径。<br><br>
+          <strong>关键指标</strong>：作品分析准确率 >70%，诊断覆盖率 100%（所有新人）
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🧠</div>
+          <div class="card-title">Coach Agent（教练 Agent）</div>
+          <span class="tag tag-accent">P0</span>
+        </div>
+        <div class="card-desc">
+          <strong>苏格拉底式导师</strong>。不直接给答案，通过递进式提问引导思考。支持实时纠错（飞书文档批注）、引导式复盘（项目完成后主动发起对话）。<br><br>
+          <strong>关键指标</strong>：学员思考深度评分 ≥7/10，导师人工介入率 <20%
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">📚</div>
+          <div class="card-title">内容 Agent（Content Agent）</div>
+          <span class="tag tag-accent">P0</span>
+        </div>
+        <div class="card-desc">
+          <strong>路径组装师</strong>。动态组装学习套餐：查询内容库 → 过滤已掌握内容 → 按偏好排序 → 组装视频+案例+微练习。每日早9点自动推送。<br><br>
+          <strong>关键指标</strong>：路径完成率 >80%，动态调整响应时间 <5s
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">⚠️</div>
+          <div class="card-title">预测 Agent（Predictive Agent）</div>
+          <span class="tag tag-accent">P0</span>
+        </div>
+        <div class="card-desc">
+          <strong>早期预警雷达</strong>。监控登录行为、学习行为、测评数据、项目数据、对话数据。硬阈值触发（连续3天未登录/停留>200%/完成<60%）。Phase 2 升级为 XGBoost 模型。<br><br>
+          <strong>关键指标</strong>：规则层命中率 45-55%（基线），Phase 2 目标 ≥60%
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🎬</div>
+          <div class="card-title">实战 Agent（Practice Agent）</div>
+          <span class="tag tag-yellow">P1</span>
+        </div>
+        <div class="card-desc">
+          <strong>即时教练</strong>。MVP 阶段飞书消息推送参考（不嵌入工作流）。Phase 2 集成 PR/AE 插件或飞书侧边栏，实现项目类型识别、卡顿点提示、导出设置核对。<br><br>
+          <strong>关键指标</strong>：参考推送准确率 >75%，导师节省评审时间 30%
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">📝</div>
+          <div class="card-title">AI Assessment Generator</div>
+          <span class="tag tag-yellow">P1</span>
+        </div>
+        <div class="card-desc">
+          <strong>出题器</strong>。课程变动>30%自动触发 AI 生成 6-12 题 → Pending Pool 人工审核 → 发布。按题型分层准确率目标：概念题>75%、场景题>65%、对比题>60%。实操/追问改为人工出题。<br><br>
+          <strong>关键指标</strong>：Owner 审阅时间 <15分钟/门课（初期）→ <10分钟
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: var(--bg-elevated);">
+  <div class="container">
+    <div class="heading-sm reveal">KPI 指标体系</div>
+    <h2 class="section-title reveal">从过程指标到结果指标</h2>
+
+    <table class="data-table reveal">
+      <thead>
+        <tr>
+          <th>指标</th>
+          <th>MVP 目标</th>
+          <th>成熟期目标</th>
+          <th>优先级</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>课程完成率</strong></td>
+          <td>> 80%</td>
+          <td>> 85%</td>
+          <td><span class="tag tag-red">P0</span></td>
+        </tr>
+        <tr>
+          <td><strong>新人独立产出周期</strong></td>
+          <td>< 14 天</td>
+          <td>< 7 天</td>
+          <td><span class="tag tag-red">P0</span></td>
+        </tr>
+        <tr>
+          <td><strong>导师时间节省</strong></td>
+          <td>> 30%</td>
+          <td>> 50%</td>
+          <td><span class="tag tag-red">P0</span></td>
+        </tr>
+        <tr>
+          <td><strong>Agent 自主决策率</strong></td>
+          <td>20%</td>
+          <td>85%</td>
+          <td><span class="tag tag-yellow">P1</span></td>
+        </tr>
+        <tr>
+          <td><strong>学员满意度</strong></td>
+          <td>> 4.0 / 5.0</td>
+          <td>> 4.5 / 5.0</td>
+          <td><span class="tag tag-yellow">P1</span></td>
+        </tr>
+        <tr>
+          <td><strong>内容库覆盖率</strong></td>
+          <td>> 60%</td>
+          <td>> 90%</td>
+          <td><span class="tag tag-green">P2</span></td>
+        </tr>
+        <tr>
+          <td><strong>编导淘汰率</strong></td>
+          <td>维持 ~10%</td>
+          <td>降至 5%</td>
+          <td><span class="tag tag-green">P2</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="heading-sm reveal">用户旅程</div>
+    <h2 class="section-title reveal">3 条核心用户旅程</h2>
+
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">👤</div>
+          <div class="card-title">旅程 1：小夏入职 Day 0-30</div>
+        </div>
+        <div class="card-desc">
+          <strong>Day 0</strong>：收到第一条 AI 学习消息<br>
+          <strong>Day 1</strong>：完成首测，Agent 组装个性化路径<br>
+          <strong>Day 3</strong>：每日推送 + 苏格拉底对话<br>
+          <strong>Day 7</strong>：第一次作品提交，Agent 预审 + 导师点评<br>
+          <strong>Day 12</strong>：卡顿预警 + Agent 关怀<br>
+          <strong>Day 15</strong>：进入真实项目，实战 Agent 陪伴<br>
+          <strong>Day 30</strong>：能力飞跃，银牌剪辑师候选
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🎓</div>
+          <div class="card-title">旅程 2：阿杰 Agent 辅助带教</div>
+        </div>
+        <div class="card-desc">
+          展示导师从被动应付到主动专注高价值辅导的转变。Agent 预审节省 30 分钟/次基础检查，导师专注创意点评。季度评价自动生成数据汇总，导师只需评分+推荐语。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🏢</div>
+          <div class="card-title">旅程 3：Lisa 智能派活</div>
+        </div>
+        <div class="card-desc">
+          制片人 Lisa 输入项目类型+风格+难度，系统自动查询能力图谱，返回 3-5 位最佳匹配人员及匹配理由。支持一键确认派活、自动创建项目群。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p><a href="../training_system_PRD.md" style="color: var(--accent-light);">📄 查看完整 PRD（2,324 行）</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

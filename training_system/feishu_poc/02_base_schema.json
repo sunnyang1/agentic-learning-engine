@@ -1,0 +1,158 @@
+{
+  "_comment": "MediaStorm Agentic Learning PoC — 飞书多维表格表结构定义 v1.0",
+  "_usage": "按此结构在飞书多维表格中创建对应表格和字段",
+  "tables": [
+    {
+      "name": "User（用户表）",
+      "description": "学员和导师的基础信息",
+      "fields": [
+        { "name": "user_id", "type": "文本", "required": true, "note": "唯一标识，如 xia_xia_001" },
+        { "name": "name", "type": "文本", "required": true },
+        { "name": "role", "type": "单选", "options": ["剪辑师", "编导", "摄影师", "制片"], "required": true },
+        { "name": "level", "type": "单选", "options": ["L1助理", "L2铜牌", "L3银牌", "L4金牌"], "default": "L1助理" },
+        { "name": "join_date", "type": "日期", "required": true },
+        { "name": "mentor_id", "type": "文本", "note": "关联User表的user_id" },
+        { "name": "status", "type": "单选", "options": ["在职", "离职", "实习"], "default": "在职" },
+        { "name": "risk_level", "type": "单选", "options": ["🟢正常", "🟡关注", "🔴需干预"], "default": "🟢正常" },
+        { "name": "skill_tech", "type": "数字", "default": 1.0, "note": "技术能力 0-5" },
+        { "name": "skill_aesthetic", "type": "数字", "default": 1.0, "note": "审美能力 0-5" },
+        { "name": "skill_content", "type": "数字", "default": 1.0, "note": "内容理解 0-5" },
+        { "name": "skill_collab", "type": "数字", "default": 1.0, "note": "协作能力 0-5" },
+        { "name": "skill_narrative", "type": "数字", "default": 1.0, "note": "叙事逻辑 0-5" },
+        { "name": "skill_color", "type": "数字", "default": 1.0, "note": "调色能力 0-5" },
+        { "name": "open_id", "type": "文本", "note": "飞书开放平台用户ID，用于发消息" }
+      ]
+    },
+    {
+      "name": "LearningRecord（学习记录表）",
+      "description": "学员的学习行为埋点",
+      "fields": [
+        { "name": "record_id", "type": "文本", "required": true },
+        { "name": "user_id", "type": "文本", "required": true, "note": "关联User" },
+        { "name": "event_type", "type": "单选", "options": ["开始课程", "完成课程", "提交作业", "作品预审", "导师辅导", "能力测评"], "required": true },
+        { "name": "content_id", "type": "文本", "note": "课程/案例/作业ID" },
+        { "name": "content_name", "type": "文本" },
+        { "name": "duration_min", "type": "数字", "note": "学习时长（分钟）" },
+        { "name": "score", "type": "数字", "note": "得分/完成率 %" },
+        { "name": "created_at", "type": "日期", "required": true }
+      ]
+    },
+    {
+      "name": "AgentDecisionLog（Agent决策日志）",
+      "description": "所有Agent决策的可审计记录",
+      "fields": [
+        { "name": "log_id", "type": "文本", "required": true },
+        { "name": "user_id", "type": "文本", "required": true },
+        { "name": "agent_name", "type": "单选", "options": ["诊断Agent", "CoachAgent", "内容Agent", "预测Agent", "实战Agent"], "required": true },
+        { "name": "decision_type", "type": "单选", "options": ["推荐", "干预", "评估", "生成", "预警"], "required": true },
+        { "name": "input_state", "type": "多行文本", "note": "决策前Memory快照JSON" },
+        { "name": "output_action", "type": "多行文本", "note": "执行动作JSON" },
+        { "name": "tools_called", "type": "多行文本", "note": "调用的工具列表JSON" },
+        { "name": "human_reviewed", "type": "复选框", "default": false },
+        { "name": "human_feedback", "type": "多行文本" },
+        { "name": "latency_ms", "type": "数字", "note": "决策耗时毫秒" },
+        { "name": "created_at", "type": "日期", "required": true }
+      ]
+    },
+    {
+      "name": "QuarterlyReview（季度评估表）",
+      "description": "360度季度评估数据",
+      "fields": [
+        { "name": "review_id", "type": "文本", "required": true },
+        { "name": "user_id", "type": "文本", "required": true },
+        { "name": "quarter", "type": "文本", "note": "如 2026Q2" },
+        { "name": "self_score", "type": "多行文本", "note": "自评分JSON" },
+        { "name": "mentor_score", "type": "多行文本", "note": "导师评分JSON" },
+        { "name": "peer_score", "type": "多行文本", "note": "同事评分JSON（MVP为空）" },
+        { "name": "work_data_score", "type": "多行文本", "note": "作品数据JSON" },
+        { "name": "agent_data_score", "type": "多行文本", "note": "Agent数据JSON" },
+        { "name": "final_score", "type": "数字", "note": "加权总分" },
+        { "name": "status", "type": "单选", "options": ["pending", "self_done", "mentor_done", "completed"], "default": "pending" }
+      ]
+    },
+    {
+      "name": "LevelCertification（等级认证表）",
+      "description": "学员等级认证记录",
+      "fields": [
+        { "name": "cert_id", "type": "文本", "required": true },
+        { "name": "user_id", "type": "文本", "required": true },
+        { "name": "from_level", "type": "单选", "options": ["L1助理", "L2铜牌", "L3银牌"], "required": true },
+        { "name": "to_level", "type": "单选", "options": ["L2铜牌", "L3银牌", "L4金牌"], "required": true },
+        { "name": "skill_avg", "type": "数字", "note": "能力雷达图平均分" },
+        { "name": "project_count", "type": "数字", "note": "独立完成项目数" },
+        { "name": "mentor_hours", "type": "数字", "note": "带教记录小时数" },
+        { "name": "mentor_recommend", "type": "多行文本" },
+        { "name": "approved_by", "type": "文本", "note": "审核人" },
+        { "name": "status", "type": "单选", "options": ["申请中", "导师推荐", "委员会审核", "已通过", "未通过"], "default": "申请中" },
+        { "name": "created_at", "type": "日期", "required": true }
+      ]
+    },
+    {
+      "name": "MentorPoints（导师积分表）",
+      "description": "导师积分总览",
+      "fields": [
+        { "name": "mentor_id", "type": "文本", "required": true },
+        { "name": "points_total", "type": "数字", "default": 0 },
+        { "name": "points_month", "type": "数字", "default": 0, "note": "本月积分" },
+        { "name": "rank_month", "type": "数字", "note": "本月排名" }
+      ]
+    },
+    {
+      "name": "MentorPointsHistory（导师积分明细表）",
+      "description": "导师积分变动历史",
+      "fields": [
+        { "name": "history_id", "type": "文本", "required": true },
+        { "name": "mentor_id", "type": "文本", "required": true },
+        { "name": "action_type", "type": "单选", "options": ["辅导", "预审通过", "案例拆解", "学员晋升", "季度最佳"], "required": true },
+        { "name": "points_delta", "type": "数字", "required": true, "note": "正数为增加，负数为兑换" },
+        { "name": "source_table", "type": "文本", "note": "来源表名" },
+        { "name": "source_id", "type": "文本", "note": "来源记录ID" },
+        { "name": "created_at", "type": "日期", "required": true }
+      ]
+    },
+    {
+      "name": "Course（课程表）",
+      "description": "内容库-课程",
+      "fields": [
+        { "name": "course_id", "type": "文本", "required": true },
+        { "name": "title", "type": "文本", "required": true },
+        { "name": "difficulty", "type": "单选", "options": ["入门", "进阶", "大师"], "required": true },
+        { "name": "tags", "type": "多行文本", "note": "标签JSON数组" },
+        { "name": "duration_sec", "type": "数字", "note": "时长（秒）" },
+        { "name": "content_url", "type": "文本", "note": "飞书云文档/OSS链接" },
+        { "name": "status", "type": "单选", "options": ["草稿", "已发布", "已归档"], "default": "草稿" }
+      ]
+    },
+    {
+      "name": "CaseStudy（案例表）",
+      "description": "内容库-案例拆解",
+      "fields": [
+        { "name": "case_id", "type": "文本", "required": true },
+        { "name": "title", "type": "文本", "required": true },
+        { "name": "project_type", "type": "单选", "options": ["科技评测", "情感纪录", "Vlog", "商业广告", "幕后花絮"], "required": true },
+        { "name": "difficulty", "type": "单选", "options": ["入门", "进阶", "大师"], "required": true },
+        { "name": "focus_areas", "type": "多行文本", "note": "重点拆解维度JSON" },
+        { "name": "content_url", "type": "文本" },
+        { "name": "mentor_id", "type": "文本", "note": "拆解导师" }
+      ]
+    }
+  ],
+  "_automation_rules": [
+    {
+      "table": "LearningRecord",
+      "trigger": "新增记录",
+      "action": "更新User表对应学员的risk_level",
+      "condition": "如果连续3天无学习记录 → risk_level = 🟡关注"
+    },
+    {
+      "table": "MentorPointsHistory",
+      "trigger": "新增记录",
+      "action": "更新MentorPoints.points_total = SUM(MentorPointsHistory.points_delta) WHERE mentor_id = x"
+    },
+    {
+      "table": "QuarterlyReview",
+      "trigger": "status 变为 self_done",
+      "action": "创建飞书审批实例 → 通知导师评价"
+    }
+  ]
+}

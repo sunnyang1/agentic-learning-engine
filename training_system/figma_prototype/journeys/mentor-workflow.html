@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户旅程 2：阿杰的 Agent 辅助带教</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: #0f0f1a; color: #c0c0d0;
+            min-height: 100vh; line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; color: #3370FF; text-decoration: none; font-size: 14px; margin-bottom: 24px; }
+        h1 { font-size: 28px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+        .subtitle { color: #8f8fa0; font-size: 15px; margin-bottom: 40px; }
+
+        .flow-step {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px; padding: 28px;
+            margin-bottom: 24px;
+        }
+        .flow-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 16px;
+        }
+        .flow-title { font-size: 18px; font-weight: 600; color: #fff; }
+        .flow-tag {
+            padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 500;
+        }
+        .tag-auto { background: rgba(51,112,255,0.15); color: #7aa3ff; }
+        .tag-human { background: rgba(255,107,107,0.15); color: #ffb3b3; }
+        .tag-collab { background: rgba(52,199,89,0.15); color: #7ee8a0; }
+
+        .flow-desc { font-size: 14px; color: #a0a0b0; line-height: 1.8; margin-bottom: 16px; }
+        .flow-desc strong { color: #7aa3ff; }
+
+        .mock-screen {
+            background: #fff; border-radius: 12px; padding: 16px;
+            color: #1F2329; font-size: 13px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .dashboard-mock {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+            margin-bottom: 16px;
+        }
+        .metric-box {
+            background: #f5f6f7; border-radius: 10px; padding: 16px; text-align: center;
+        }
+        .metric-box .num { font-size: 28px; font-weight: 700; color: #3370FF; }
+        .metric-box .label { font-size: 12px; color: #8F959E; margin-top: 4px; }
+        .table-mock {
+            width: 100%; border-collapse: collapse; font-size: 12px;
+        }
+        .table-mock th { text-align: left; padding: 8px; color: #8F959E; border-bottom: 1px solid #EBECF0; }
+        .table-mock td { padding: 10px 8px; border-bottom: 1px solid #EBECF0; }
+
+        .arrow-down { text-align: center; color: #3370FF; font-size: 24px; margin: 12px 0; }
+        .time-label { text-align: center; font-size: 12px; color: #8f8fa0; margin-bottom: 8px; }
+
+        .before-after {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+        }
+        .ba-card {
+            background: #fff; border-radius: 12px; padding: 20px;
+            color: #1F2329;
+        }
+        .ba-card h4 { font-size: 14px; margin-bottom: 12px; }
+        .ba-card.old h4 { color: #FF4D4F; }
+        .ba-card.new h4 { color: #34C759; }
+        .ba-item {
+            display: flex; align-items: center; gap: 8px;
+            padding: 8px 0; border-bottom: 1px solid #EBECF0;
+            font-size: 13px;
+        }
+        .ba-item:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回原型主页</a>
+        <h1>🎓 用户旅程 2：阿杰的 Agent 辅助带教</h1>
+        <p class="subtitle">角色：导师（资深剪辑师）| 目标：减少重复带教时间，专注高价值辅导</p>
+
+        <div class="time-label">⏰ 周一早上 9:00</div>
+        <div class="flow-step">
+            <div class="flow-header">
+                <div class="flow-title">Step 1：收到 Agent 预处理周报</div>
+                <span class="flow-tag tag-auto">自动</span>
+            </div>
+            <div class="flow-desc">
+                阿杰打开飞书，收到 <strong>Orchestrator</strong> 自动汇总的上周报。
+                无需手动统计，所有学员状态、Agent 处理结果、待处理事项一目了然。
+            </div>
+            <div class="mock-screen">
+                <div style="font-size:16px;font-weight:600;margin-bottom:16px;">📋 Agent 辅助看板 · 本周概览</div>
+                <div class="dashboard-mock">
+                    <div class="metric-box">
+                        <div class="num">28</div>
+                        <div class="label">Agent 已解答</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="num">5</div>
+                        <div class="label">需你判断</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="num">4.5h</div>
+                        <div class="label">节省时长</div>
+                    </div>
+                </div>
+                <table class="table-mock">
+                    <thead><tr><th>学员</th><th>本周进度</th><th>风险</th><th>Agent 处理</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>小夏</strong></td><td>5/6 完成</td><td style="color:#FF9500;">🟡 关注</td><td>3 问题已解答</td></tr>
+                        <tr><td><strong>小李</strong></td><td>2/5 完成</td><td style="color:#FF4D4F;">🔴 需干预</td><td>1 预警待处理</td></tr>
+                        <tr><td><strong>小林</strong></td><td>6/6 完成</td><td style="color:#34C759;">🟢 正常</td><td>全部自动处理</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="arrow-down">↓</div>
+        <div class="time-label">⏰ 周三下午 14:00</div>
+
+        <div class="flow-step">
+            <div class="flow-header">
+                <div class="flow-title">Step 2：学员提交作品，Agent 自动预审</div>
+                <span class="flow-tag tag-collab">人机协作</span>
+            </div>
+            <div class="flow-desc">
+                小夏提交练习作品。<strong>诊断 Agent</strong> 在 30 秒内完成技术检查：
+                品牌规范、导出设置、字幕样式、黑帧检测等基础项全部自动完成。
+                阿杰只需关注 Agent 标记的「创意关注点」。
+            </div>
+            <div class="mock-screen">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                    <div>
+                        <div style="font-size:14px;font-weight:600;color:#3370FF;margin-bottom:8px;">🤖 Agent 预审（30秒）</div>
+                        <div style="background:#f5f6f7;border-radius:8px;padding:12px;font-size:12px;line-height:2;">
+                            ✅ 品牌规范：通过<br>
+                            ✅ 导出设置：通过<br>
+                            ⚠️ 字幕样式：轻微偏差<br>
+                            ✅ 技术完整性：通过<br>
+                            ✅ 无黑帧<br>
+                            ✅ 音画同步<br><br>
+                            <strong style="color:#3370FF;">💡 创意关注点</strong><br>
+                            情感段落节奏与参考案例差异较大
+                        </div>
+                    </div>
+                    <div>
+                        <div style="font-size:14px;font-weight:600;color:#FF6B6B;margin-bottom:8px;">🎓 导师点评（5分钟）</div>
+                        <div style="background:#f5f6f7;border-radius:8px;padding:12px;font-size:12px;line-height:2;">
+                            技术层面没问题 ✅<br><br>
+                            <strong>创意建议：</strong><br>
+                            1. 情感转折时机提前 2-3 秒<br>
+                            2. B-roll 比例建议 3:1<br>
+                            3. 结尾可以更克制<br><br>
+                            <strong>下次目标：</strong><br>
+                            练习情感段落节奏把控
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow-down">↓</div>
+        <div class="time-label">⏰ 随时（自动触发）</div>
+
+        <div class="flow-step">
+            <div class="flow-header">
+                <div class="flow-title">Step 3：Agent 预警 → 导师快速响应</div>
+                <span class="flow-tag tag-human">人工决策</span>
+            </div>
+            <div class="flow-desc">
+                <strong>预测 Agent</strong> 监测到小夏在「情感叙事」模块连续 3 次低分（<70分）。
+                触发预警通知，建议阿杰安排 1 对 1 深度辅导。阿杰一键确认，系统自动创建辅导日程。
+            </div>
+            <div class="mock-screen">
+                <div style="background:#FFF2F0;border-left:3px solid #FF4D4F;border-radius:8px;padding:16px;">
+                    <div style="font-weight:600;color:#FF4D4F;margin-bottom:8px;">🔴 Agent 预警通知</div>
+                    <div style="font-size:13px;line-height:1.7;">
+                        <strong>学员：</strong>小夏<br>
+                        <strong>预警类型：</strong>能力连续下滑<br>
+                        <strong>详情：</strong>「情感叙事」模块连续 3 次练习得分 &lt; 70（65→62→58）<br>
+                        <strong>建议干预：</strong>1 对 1 深度辅导，重点突破情感段落节奏<br>
+                        <strong>预计辅导时长：</strong>45 分钟<br><br>
+                        <button style="background:#3370FF;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;">安排辅导</button>
+                        <button style="background:#f5f5f5;color:#646A73;border:none;padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;margin-left:8px;">忽略</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrow-down">↓</div>
+
+        <div class="flow-step">
+            <div class="flow-header">
+                <div class="flow-title">带教效果对比：v1.0 人工 → v2.0 Agent 辅助</div>
+                <span class="flow-tag tag-collab">效果</span>
+            </div>
+            <div class="before-after">
+                <div class="ba-card old">
+                    <h4>❌ v1.0 传统带教（每周）</h4>
+                    <div class="ba-item">⏱️ 处理基础问题：4 小时</div>
+                    <div class="ba-item">📧 重复回答同类问题：20+ 次</div>
+                    <div class="ba-item">🔍 手动检查作品技术项：30 分钟/次</div>
+                    <div class="ba-item">📊 手动统计学员进度：1 小时</div>
+                    <div class="ba-item">💡 专注创意辅导：仅 1 小时</div>
+                </div>
+                <div class="ba-card new">
+                    <h4>✅ v2.0 Agent 辅助（每周）</h4>
+                    <div class="ba-item">⏱️ 处理基础问题：0.5 小时（Agent 代劳）</div>
+                    <div class="ba-item">📧 重复回答同类问题：0 次（Agent 解答 85%）</div>
+                    <div class="ba-item">🔍 手动检查作品技术项：0 分钟（Agent 预审）</div>
+                    <div class="ba-item">📊 手动统计学员进度：0 分钟（自动周报）</div>
+                    <div class="ba-item">💡 专注创意辅导：3.5 小时 ↑250%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

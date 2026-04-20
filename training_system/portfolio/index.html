@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Learning Engine — Allen Zhou 作品集</title>
+  <meta name="description" content="MediaStorm新人培训与能力图谱系统 — 产品设计方案集，涵盖PRD、系统架构、交互原型、测试用例、数据埋点与运营方案">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-icon">🎬</div>
+      <span>Agentic Learning</span>
+    </a>
+    <button class="nav-mobile-toggle">☰</button>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">首页</a>
+      <a href="prd.html" class="nav-link">PRD</a>
+      <a href="design.html" class="nav-link">方案设计</a>
+      <a href="prototype.html" class="nav-link">交互原型</a>
+      <a href="review.html" class="nav-link">评审纪要</a>
+      <a href="testing.html" class="nav-link">测试&运营</a>
+    </div>
+    <a href="prototype.html" class="nav-cta">查看原型 →</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-badge reveal">
+      <span class="hero-badge-dot"></span>
+      <span>MediaStorm（影视飓风）求职作品集</span>
+    </div>
+    <h1 class="hero-title reveal">
+      Agentic Learning<br>
+      <span class="hero-title-accent">Engine</span>
+    </h1>
+    <p class="hero-subtitle reveal">
+      基于飞书生态的多 Agent 协作智能学习系统，为影视飓风 100 人团队设计的新人培训与能力图谱解决方案。从 0 到 1 的完整产品设计闭环：需求分析 → 系统架构 → 交互原型 → 测试验证 → 运营方案。
+    </p>
+    <div class="hero-actions reveal">
+      <a href="prototype.html" class="btn btn-primary">🎮 体验交互原型</a>
+      <a href="design.html" class="btn btn-secondary">📐 查看方案设计</a>
+    </div>
+  </div>
+</header>
+
+<!-- Stats -->
+<section class="section" style="background: var(--bg-elevated);">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-value">7</div>
+        <div class="stat-label">份核心文档<br>PRD / 需求 / 方案 / 测试 / 数据 / 运营 / 评审</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-value">13</div>
+        <div class="stat-label">页交互原型<br>学员端6页 + 导师端4页 + 管理端2页 + 运营端1页</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-value">3</div>
+        <div class="stat-label">轮设计评审<br>闭环修正 24 个问题，形成标准化评审方法论</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-value">6</div>
+        <div class="stat-label">大核心 Agent<br>诊断 / Coach / 内容 / 预测 / 实战 / AI Assessment</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project Overview -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="heading-sm reveal">项目背景</div>
+    <h2 class="section-title reveal">为影视飓风设计的<br>AI 驱动新人培训系统</h2>
+    <p class="section-subtitle reveal">
+      MediaStorm 年产 130+ 影片，项目周期仅 5 天，编导淘汰率 ~10%。新人需要 14 天才能独立产出，导师时间被大量基础辅导占用。本系统通过 6 大 Agent 协作，实现个性化学习路径、自动作品预审、风险预警和季度评估。
+    </p>
+
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🎯</div>
+          <div class="card-title">核心目标</div>
+        </div>
+        <div class="card-desc">
+          新人独立产出周期从 <strong class="text-accent">14 天 → 7 天</strong><br>
+          导师时间节省 <strong class="text-accent">30%+</strong><br>
+          课程完成率 <strong class="text-accent">>80%</strong><br>
+          编导淘汰率降至 <strong class="text-accent">5%</strong>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🛠</div>
+          <div class="card-title">技术栈</div>
+        </div>
+        <div class="card-desc">
+          <strong>飞书原生优先</strong>：多维表格 / 云文档 / 智能伙伴 / 应用引擎 / 机器人 / 审批流<br><br>
+          <strong>LLM 供应商</strong>：阿里云百炼 (qwen) / 字节豆包 / Claude<br><br>
+          <strong>基础设施</strong>：阿里云 OSS / 函数计算 / Redis
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">📊</div>
+          <div class="card-title">关键指标</div>
+        </div>
+        <div class="card-desc">
+          规则引擎延迟 <strong class="text-accent">< 200ms</strong><br>
+          LLM 推理延迟 <strong class="text-accent">< 3s</strong><br>
+          Agent 自主决策率 MVP <strong class="text-accent">20%</strong> → 成熟期 <strong class="text-accent">85%</strong><br>
+          运营成本平稳期 <strong class="text-accent">¥200-500/月</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture -->
+<section class="section" style="background: var(--bg-elevated);" id="architecture">
+  <div class="container">
+    <div class="heading-sm reveal">系统架构</div>
+    <h2 class="section-title reveal">四层 Agentic Learning 引擎</h2>
+    <p class="section-subtitle reveal">
+      基于飞书原生能力构建，Orchestrator 统一调度，Memory 分层存储，6 大 Agent 协作执行，Tool Registry 标准化工具调用。
+    </p>
+
+    <div class="grid-2">
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🧠</div>
+          <div class="card-title">Orchestrator 调度中枢</div>
+        </div>
+        <div class="card-desc">
+          飞书应用引擎 Workflow + 事件总线。接收学员行为事件（埋点/工作流/时间/状态变化/外部），通过规则层（80%）→ 策略层（15%）→ 模型层（5%）三层决策，调度单个/并行/串行 Agent 执行计划。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">💾</div>
+          <div class="card-title">Memory 记忆层</div>
+        </div>
+        <div class="card-desc">
+          MVP 两层架构：Hot Memory（冻结快照 ~1,500 tokens，飞书多维表格 JSON 字段）+ Cold Storage（类型A多维表格/类型B云文档/类型C OSS 归档）。Phase 3 扩展 Procedural Memory + External Knowledge 语义 RAG。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🤖</div>
+          <div class="card-title">6 大 Agent 智能体</div>
+        </div>
+        <div class="card-desc">
+          <strong>诊断Agent</strong>：作品CT扫描 + 微场景测试<br>
+          <strong>CoachAgent</strong>：苏格拉底式对话导师<br>
+          <strong>内容Agent</strong>：动态学习路径组装（完成率>80%）<br>
+          <strong>预测Agent</strong>：风险预警雷达（规则层→XGBoost模型）<br>
+          <strong>实战Agent</strong>：项目工作流嵌入（MVP飞书消息推送）<br>
+          <strong>AI Assessment</strong>：按题型分层准确率目标的出题器
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="card-header">
+          <div class="card-icon">🔧</div>
+          <div class="card-title">Tool Registry</div>
+        </div>
+        <div class="card-desc">
+          标准化工具注册表：Content Tools（课程/案例/资源搜索）、Assessment Tools（出题/评分/缺口分析）、Communication Tools（消息/会议/待办）、Project Tools（项目数据/工作流分析）、Analytics Tools（学习行为/团队能力/预测）。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modules -->
+<section class="section" id="modules">
+  <div class="container">
+    <div class="heading-sm reveal">核心模块</div>
+    <h2 class="section-title reveal">从入职到晋升的完整闭环</h2>
+    <p class="section-subtitle reveal">
+      覆盖新人 Day 0-30 全周期，以及季度评估、等级认证、导师激励等人才发展体系。
+    </p>
+
+    <div class="grid-3">
+      <div class="card reveal">
+        <div style="font-size: 32px; margin-bottom: var(--s4);">🩺</div>
+        <div class="card-title mb-2">诊断 & 测评</div>
+        <div class="card-desc">
+          入职前48h收集作品 → Day 1 LLM多维度分析 → 3道微场景测试 → 生成能力缺口热力图 + 个性化新手村路径。AI Assessment Generator 按题型分层准确率目标出题。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div style="font-size: 32px; margin-bottom: var(--s4);">🧑‍🏫</div>
+        <div class="card-title mb-2">学习 & 辅导</div>
+        <div class="card-desc">
+          Content Agent 每日早9点推送个性化套餐。Coach Agent 苏格拉底式对话，不直接给答案。实战 Agent 项目工作流嵌入。动态调整规则：连续高分→进阶内容，卡顿→简化版+1对1预警。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div style="font-size: 32px; margin-bottom: var(--s4);">⚠️</div>
+        <div class="card-title mb-2">预测 & 干预</div>
+        <div class="card-desc">
+          硬阈值规则层：连续3天未登录/停留时间>200%/入职7天完成<60%。自动干预：关怀消息→导师通知→HR升级。Phase 2 升级为 XGBoost/LightGBM 轻量模型，目标命中率≥60%。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div style="font-size: 32px; margin-bottom: var(--s4);">📋</div>
+        <div class="card-title mb-2">季度 360° 评估</div>
+        <div class="card-desc">
+          自评25% + 导师评价50% + Agent数据12.5% + 作品数据12.5%。飞书审批流实现：自评问卷 → 导师评价 → 自动汇总 → 季度成长报告。MVP去掉同事评价降低复杂度。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div style="font-size: 32px; margin-bottom: var(--s4);">🏅</div>
+        <div class="card-title mb-2">等级认证</div>
+        <div class="card-desc">
+          L1助理→L2铜牌→L3银牌→L4金牌。能力雷达图+项目经历+带教记录+导师推荐+委员会审核。Agent自动评估达标状态，能力图谱"已发布"才触发晋升，防止误触发。
+        </div>
+      </div>
+      <div class="card reveal">
+        <div style="font-size: 32px; margin-bottom: var(--s4);">💎</div>
+        <div class="card-title mb-2">导师激励</div>
+        <div class="card-desc">
+          积分制：辅导1小时+10分 / 预审通过+2分 / 案例拆解+20分 / 学员晋升+50分。兑换：100分培训预算 / 500分调休 / 1000分年度大奖提名。月度/季度/年度荣誉体系。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="section" style="background: var(--bg-elevated);" id="timeline">
+  <div class="container">
+    <div class="heading-sm reveal">项目演进</div>
+    <h2 class="section-title reveal">从 PRD 到原型的完整迭代</h2>
+    <p class="section-subtitle reveal">
+      5 天完成 7 份核心文档 + 13 页交互原型 + 3 轮设计评审，形成标准化闭环。
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-date">Day 1 · 2026-04-19</div>
+        <div class="timeline-title">PRD v1.0 与需求分析</div>
+        <div class="timeline-desc">
+          产出 <code>training_system_PRD.md</code>（2,324行）与 <code>需求分析.md</code>（443行）。定义 6 大 Agent、4 层 Memory 架构、3 条用户旅程。灵感来源：Khanmigo、Syntea（IU Group 130,000+学生）、Hermes Agent 记忆架构。
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">Day 2 · 2026-04-20</div>
+        <div class="timeline-title">方案设计 v1.0 → v2.0 + 第一轮评审</div>
+        <div class="timeline-desc">
+          初始方案 1,245行 → 第一轮评审发现 8 个问题（2 P0 + 6 P1）→ 修正 Memory 四层→两层 MVP、性能指标调整、Prompt 版本管理、AI Assessment 分层。产出 <code>设计评审纪要.md</code>。
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">Day 3 · 2026-04-20-21</div>
+        <div class="timeline-title">方案设计 v2.0 → v3.0 → v4.0 + 第二/三轮评审</div>
+        <div class="timeline-desc">
+          v3.0 引入 Cold Storage 分层、Phase 3 拆分、Tier1/2/3 自动化。v4.0 基于需求跟踪矩阵 21 项偏离分析，新增 360度评估、等级认证、导师激励 3 个完整模块。总工期 28周→33周。
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">Day 4 · 2026-04-21</div>
+        <div class="timeline-title">测试 / 数据 / 运营方案</div>
+        <div class="timeline-desc">
+          产出 <code>测试用例.md</code>（753行，覆盖功能/性能/安全/兼容）、<code>数据埋点.md</code>（690行，4层埋点体系）、<code>运营方案.md</code>（528行，冷启动/内容库/用户运营/数据驱动）。
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">Day 5 · 2026-04-21</div>
+        <div class="timeline-title">交互原型 v2 + 飞书 PoC 材料</div>
+        <div class="timeline-desc">
+          原型从 9 页扩展至 <strong>13 页</strong>（新增季度自评、等级认证、导师评价、导师积分）。设计系统新增 8 个组件（评分滑块/徽章/步骤条/排行榜等）。同步产出飞书 PoC 搭建材料包（5份文档，1,446行）。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Navigation Cards -->
+<section class="section" id="explore">
+  <div class="container">
+    <div class="heading-sm reveal">深入探索</div>
+    <h2 class="section-title reveal">查看各模块详细设计</h2>
+
+    <div class="grid-3">
+      <a href="prd.html" class="card reveal" style="text-decoration: none; color: inherit;">
+        <div style="font-size: 28px; margin-bottom: var(--s4);">📄</div>
+        <div class="card-title mb-2">PRD v2.0</div>
+        <div class="card-desc">
+          2,324 行完整产品需求文档。6 大 Agent 定义、4 层 Memory 架构、3 条用户旅程、KPI 指标体系、技术约束与假设。
+        </div>
+        <div class="mt-4" style="color: var(--accent-light); font-size: 13px; font-weight: 600;">查看详情 →</div>
+      </a>
+      <a href="design.html" class="card reveal" style="text-decoration: none; color: inherit;">
+        <div style="font-size: 28px; margin-bottom: var(--s4);">📐</div>
+        <div class="card-title mb-2">方案设计 v4.1</div>
+        <div class="card-desc">
+          1,852 行系统方案设计。总体架构、详细模块设计、数据架构、技术架构、接口设计、实施计划、风险应对。
+        </div>
+        <div class="mt-4" style="color: var(--accent-light); font-size: 13px; font-weight: 600;">查看详情 →</div>
+      </a>
+      <a href="prototype.html" class="card reveal" style="text-decoration: none; color: inherit;">
+        <div style="font-size: 28px; margin-bottom: var(--s4);">🎮</div>
+        <div class="card-title mb-2">交互原型 v2</div>
+        <div class="card-desc">
+          13 页可交互低保真原型，模拟飞书 App/PC 端。学员端 6 页 + 导师端 4 页 + 管理端 2 页 + 运营端 1 页。
+        </div>
+        <div class="mt-4" style="color: var(--accent-light); font-size: 13px; font-weight: 600;">体验原型 →</div>
+      </a>
+      <a href="review.html" class="card reveal" style="text-decoration: none; color: inherit;">
+        <div style="font-size: 28px; margin-bottom: var(--s4);">🔍</div>
+        <div class="card-title mb-2">设计评审纪要</div>
+        <div class="card-desc">
+          3 轮设计评审，闭环修正 24 个问题。四维度评审框架：架构可行性 / 性能达标性 / Prompt 预研必要性 / AI 准确率现实性。
+        </div>
+        <div class="mt-4" style="color: var(--accent-light); font-size: 13px; font-weight: 600;">查看详情 →</div>
+      </a>
+      <a href="testing.html" class="card reveal" style="text-decoration: none; color: inherit;">
+        <div style="font-size: 28px; margin-bottom: var(--s4);">🧪</div>
+        <div class="card-title mb-2">测试 & 数据 & 运营</div>
+        <div class="card-desc">
+          753 行测试用例、690 行数据埋点方案、528 行运营方案。4 层埋点体系、AARRR 增长模型、冷启动策略。
+        </div>
+        <div class="mt-4" style="color: var(--accent-light); font-size: 13px; font-weight: 600;">查看详情 →</div>
+      </a>
+      <div class="card reveal" style="border: 1px dashed var(--border-active);">
+        <div style="font-size: 28px; margin-bottom: var(--s4);">🚀</div>
+        <div class="card-title mb-2">飞书 PoC 材料</div>
+        <div class="card-desc">
+          5 份搭建材料（1,446行）：注册指南 / 多维表格表结构 / Workflow 设计 / LLM 集成代码 / 机器人配置。5 天可产出可演示的真实系统。
+        </div>
+        <div class="mt-4" style="color: var(--text-tertiary); font-size: 13px;">材料包已产出，待执行搭建</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <p style="margin-bottom: var(--s2);">Agentic Learning Engine — MediaStorm 新人培训与能力图谱系统</p>
+    <p>Allen Zhou · 产品经理求职作品集 · 2026</p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

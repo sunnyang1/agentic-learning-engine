@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Office/PDF
+*.docx
+*.pdf
+*.xlsx
+
+# Images
+*.jpg
+*.jpeg
+*.png
+*.crx
+
+# Archives
+*.zip
+
+# Personal files
+2寸.png
+身份证人脸.jpg
+身份证国徽.jpg
+master.png
+Self assessment.docx
+
+# Previous work
+Gientech/
+
