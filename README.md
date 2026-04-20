@@ -13,7 +13,7 @@
 
 <a id="english"></a>
 
-<details open>
+<details>
 <summary><h2>📄 English</h2></summary>
 
 A comprehensive product portfolio demonstrating end-to-end product management capabilities — from PRD to implementation plan, from interactive prototype to production-ready PoC.
@@ -203,7 +203,7 @@ This is a **portfolio project** for demonstration purposes. All documents and co
 
 <a id="中文"></a>
 
-<details>
+<details open>
 <summary><h2>📄 中文</h2></summary>
 
 一份完整的产品经理作品集，展示端到端的产品管理能力 — 从 PRD 到实施方案，从交互原型到生产级 PoC。
