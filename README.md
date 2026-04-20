@@ -1,11 +1,26 @@
 # Agentic Learning Engine
 
-> **AI-Powered Training System for MediaStorm**  
-> A comprehensive product portfolio demonstrating end-to-end product management capabilities — from PRD to implementation plan, from interactive prototype to production-ready PoC.
+> **AI-Powered Training System for MediaStorm** · **面向 MediaStorm（影视飓风）的 AI 驱动培训系统**
 
 ---
 
-## 📌 Background
+## 🌐 Language / 语言
+
+- [English](#english)
+- [中文](#中文)
+
+---
+
+<a id="english"></a>
+
+<details open>
+<summary><h2>📄 English</h2></summary>
+
+A comprehensive product portfolio demonstrating end-to-end product management capabilities — from PRD to implementation plan, from interactive prototype to production-ready PoC.
+
+---
+
+### 📌 Background
 
 This portfolio was built for a Product Manager application at **MediaStorm (影视飓风)**, a top-tier Chinese content creation studio producing 130+ films per year with a 100-person team.
 
@@ -13,22 +28,22 @@ The project addresses a real operational challenge: **new editor onboarding take
 
 ---
 
-## 📁 Portfolio Contents
+### 📁 Portfolio Contents
 
-### 1. Product Requirements Document
+#### 1. Product Requirements Document
 | Document | Lines | Description |
 |----------|-------|-------------|
 | [`training_system/training_system_PRD.md`](training_system/training_system_PRD.md) | 2,546 | Full PRD v3.0 — user stories, functional specs, KPIs, roadmap |
 | [`training_system/需求分析.md`](training_system/需求分析.md) | — | Requirement analysis & stakeholder mapping |
 
-### 2. System Design
+#### 2. System Design
 | Document | Lines | Description |
 |----------|-------|-------------|
 | [`training_system/方案设计_v4.1.md`](training_system/方案设计_v4.1.md) | 1,852 | Frozen design spec v4.1 — 3 rounds of design review, 24 issues closed |
 | [`training_system/设计评审纪要_v3.md`](training_system/设计评审纪要_v3.md) | — | Design review minutes (3 rounds, 24 issues → all resolved) |
 | [`training_system/需求跟踪矩阵与偏离分析报告.md`](training_system/需求跟踪矩阵与偏离分析报告.md) | 419 | Traceability matrix & deviation analysis (21 items) |
 
-### 3. Testing & Operations
+#### 3. Testing & Operations
 | Document | Lines | Description |
 |----------|-------|-------------|
 | [`training_system/测试用例设计.md`](training_system/测试用例设计.md) | 753 | Test case design covering functional & edge cases |
@@ -36,7 +51,7 @@ The project addresses a real operational challenge: **new editor onboarding take
 | [`training_system/运营方案.md`](training_system/运营方案.md) | 528 | Go-to-market & operations plan |
 | [`training_system/Sprint计划.md`](training_system/Sprint计划.md) | — | 20-Sprint agile plan (2-week sprints, 8-month roadmap) |
 
-### 4. Interactive Prototype
+#### 4. Interactive Prototype
 | Path | Description |
 |------|-------------|
 | [`training_system/figma_prototype/`](training_system/figma_prototype/) | 13-page HTML prototype — student chat, coach, mentor dashboard, manager insights, admin panels |
@@ -44,12 +59,12 @@ The project addresses a real operational challenge: **new editor onboarding take
 
 **Open [`training_system/figma_prototype/index.html`](training_system/figma_prototype/index.html)** in a browser to explore.
 
-### 5. Portfolio Website
+#### 5. Portfolio Website
 | Path | Description |
 |------|-------------|
 | [`training_system/portfolio/`](training_system/portfolio/) | 6-page responsive portfolio site (dark theme) |
 
-### 6. Feishu PoC Package
+#### 6. Feishu PoC Package
 | Document | Lines | Description |
 |----------|-------|-------------|
 | [`training_system/feishu_poc/01_setup_guide.md`](training_system/feishu_poc/01_setup_guide.md) | 214 | Feishu app setup & permission configuration |
@@ -58,14 +73,14 @@ The project addresses a real operational challenge: **new editor onboarding take
 | [`training_system/feishu_poc/04_llm_integration.py`](training_system/feishu_poc/04_llm_integration.py) | 463 | Production-ready Python code for LLM integration |
 | [`training_system/feishu_poc/05_bot_config.md`](training_system/feishu_poc/05_bot_config.md) | 290 | Bot configuration & message card templates |
 
-### 7. Strategic Analysis
+#### 7. Strategic Analysis
 | Document | Description |
 |----------|-------------|
-| [`training_system/MediaStorm_效率工具机会点分析.md`](training_system/MediaStorm_效率工具机会点分析.md) | Efficiency tool opportunity analysis for MediaStorm |
+| [`MediaStorm_效率工具机会点分析.md`](MediaStorm_效率工具机会点分析.md) | Efficiency tool opportunity analysis for MediaStorm |
 
 ---
 
-## 🏗️ Architecture Overview
+### 🏗️ Architecture Overview
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -101,7 +116,7 @@ The project addresses a real operational challenge: **new editor onboarding take
 
 ---
 
-## 📊 Key Metrics & Targets
+### 📊 Key Metrics & Targets
 
 | Metric | Target | Phase |
 |--------|--------|-------|
@@ -115,7 +130,7 @@ The project addresses a real operational challenge: **new editor onboarding take
 
 ---
 
-## 🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -128,7 +143,7 @@ The project addresses a real operational challenge: **new editor onboarding take
 
 ---
 
-## 📅 Implementation Roadmap
+### 📅 Implementation Roadmap
 
 | Phase | Duration | Focus |
 |-------|----------|-------|
@@ -145,24 +160,24 @@ The project addresses a real operational challenge: **new editor onboarding take
 
 ---
 
-## 🚀 Quick Start
+### 🚀 Quick Start
 
-### View the Interactive Prototype
+**View the Interactive Prototype**
 ```bash
 open training_system/figma_prototype/index.html
 ```
 
-### Explore the Portfolio Website
+**Explore the Portfolio Website**
 ```bash
 open training_system/portfolio/index.html
 ```
 
-### Read the Design Spec
+**Read the Design Spec**
 Start with [`training_system/方案设计_v4.1.md`](training_system/方案设计_v4.1.md) for the frozen technical blueprint.
 
 ---
 
-## 📈 Design Review Methodology
+### 📈 Design Review Methodology
 
 Every design iteration followed a standardized 4-dimension review process:
 1. **Architecture Feasibility** — Can it be built within constraints?
@@ -174,7 +189,7 @@ Every design iteration followed a standardized 4-dimension review process:
 
 ---
 
-## 📄 License
+### 📄 License
 
 This is a **portfolio project** for demonstration purposes. All documents and code are original work created for the MediaStorm Product Manager application.
 
@@ -182,18 +197,20 @@ This is a **portfolio project** for demonstration purposes. All documents and co
 
 > **Total output: 11,000+ lines of documentation | 13-page interactive prototype | 6-page portfolio site | 5-piece Feishu PoC package**
 
----
+</details>
 
 ---
 
-# Agentic Learning Engine（中文）
+<a id="中文"></a>
 
-> **面向 MediaStorm（影视飓风）的 AI 驱动培训系统**  
-> 一份完整的产品经理作品集，展示端到端的产品管理能力 — 从 PRD 到实施方案，从交互原型到生产级 PoC。
+<details>
+<summary><h2>📄 中文</h2></summary>
+
+一份完整的产品经理作品集，展示端到端的产品管理能力 — 从 PRD 到实施方案，从交互原型到生产级 PoC。
 
 ---
 
-## 📌 项目背景
+### 📌 项目背景
 
 本作品集为 **MediaStorm（影视飓风）产品经理岗位** 申请而制作。MediaStorm 是中国顶尖的内容创作工作室，年产 130+ 部影片，团队规模约 100 人。
 
@@ -201,22 +218,22 @@ This is a **portfolio project** for demonstration purposes. All documents and co
 
 ---
 
-## 📁 作品集内容
+### 📁 作品集内容
 
-### 1. 产品需求文档
+#### 1. 产品需求文档
 | 文档 | 行数 | 说明 |
 |------|------|------|
 | [`training_system/training_system_PRD.md`](training_system/training_system_PRD.md) | 2,546 | 完整 PRD v3.0 — 用户故事、功能规格、KPI、路线图 |
 | [`training_system/需求分析.md`](training_system/需求分析.md) | — | 需求分析与干系人地图 |
 
-### 2. 系统设计
+#### 2. 系统设计
 | 文档 | 行数 | 说明 |
 |------|------|------|
 | [`training_system/方案设计_v4.1.md`](training_system/方案设计_v4.1.md) | 1,852 | 冻结版设计规格 v4.1 — 3 轮设计评审，24 个问题全部闭环 |
 | [`training_system/设计评审纪要_v3.md`](training_system/设计评审纪要_v3.md) | — | 设计评审纪要（3 轮，24 个问题 → 全部解决） |
 | [`training_system/需求跟踪矩阵与偏离分析报告.md`](training_system/需求跟踪矩阵与偏离分析报告.md) | 419 | 需求跟踪矩阵与偏离分析（21 项偏离） |
 
-### 3. 测试与运营
+#### 3. 测试与运营
 | 文档 | 行数 | 说明 |
 |------|------|------|
 | [`training_system/测试用例设计.md`](training_system/测试用例设计.md) | 753 | 测试用例设计，覆盖功能与边界场景 |
@@ -224,7 +241,7 @@ This is a **portfolio project** for demonstration purposes. All documents and co
 | [`training_system/运营方案.md`](training_system/运营方案.md) | 528 | 上线运营与推广方案 |
 | [`training_system/Sprint计划.md`](training_system/Sprint计划.md) | — | 20 个 Sprint 敏捷计划（2 周/Sprint，8 个月路线图） |
 
-### 4. 交互原型
+#### 4. 交互原型
 | 路径 | 说明 |
 |------|------|
 | [`training_system/figma_prototype/`](training_system/figma_prototype/) | 13 页 HTML 原型 — 学员对话、教练、导师看板、管理者洞察、管理员面板 |
@@ -232,12 +249,12 @@ This is a **portfolio project** for demonstration purposes. All documents and co
 
 **在浏览器中打开 [`training_system/figma_prototype/index.html`](training_system/figma_prototype/index.html)** 即可体验。
 
-### 5. 作品集网站
+#### 5. 作品集网站
 | 路径 | 说明 |
 |------|------|
 | [`training_system/portfolio/`](training_system/portfolio/) | 6 页响应式作品集网站（深色主题） |
 
-### 6. 飞书 PoC 材料包
+#### 6. 飞书 PoC 材料包
 | 文档 | 行数 | 说明 |
 |------|------|------|
 | [`training_system/feishu_poc/01_setup_guide.md`](training_system/feishu_poc/01_setup_guide.md) | 214 | 飞书应用注册、权限配置、API 验证 |
@@ -246,14 +263,14 @@ This is a **portfolio project** for demonstration purposes. All documents and co
 | [`training_system/feishu_poc/04_llm_integration.py`](training_system/feishu_poc/04_llm_integration.py) | 463 | 生产级 Python 代码，百炼 LLM 集成 |
 | [`training_system/feishu_poc/05_bot_config.md`](training_system/feishu_poc/05_bot_config.md) | 290 | 机器人配置 + 消息卡片模板 |
 
-### 7. 战略分析
+#### 7. 战略分析
 | 文档 | 说明 |
 |------|------|
-| [`training_system/MediaStorm_效率工具机会点分析.md`](training_system/MediaStorm_效率工具机会点分析.md) | MediaStorm 效率工具机会点分析 |
+| [`MediaStorm_效率工具机会点分析.md`](MediaStorm_效率工具机会点分析.md) | MediaStorm 效率工具机会点分析 |
 
 ---
 
-## 🏗️ 架构概览
+### 🏗️ 架构概览
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -289,7 +306,7 @@ This is a **portfolio project** for demonstration purposes. All documents and co
 
 ---
 
-## 📊 核心指标与目标
+### 📊 核心指标与目标
 
 | 指标 | 目标 | 阶段 |
 |------|------|------|
@@ -303,7 +320,7 @@ This is a **portfolio project** for demonstration purposes. All documents and co
 
 ---
 
-## 🛠️ 技术栈
+### 🛠️ 技术栈
 
 | 层级 | 技术 |
 |------|------|
@@ -316,7 +333,7 @@ This is a **portfolio project** for demonstration purposes. All documents and co
 
 ---
 
-## 📅 实施路线图
+### 📅 实施路线图
 
 | 阶段 | 周期 | 重点 |
 |------|------|------|
@@ -333,24 +350,24 @@ This is a **portfolio project** for demonstration purposes. All documents and co
 
 ---
 
-## 🚀 快速开始
+### 🚀 快速开始
 
-### 查看交互原型
+**查看交互原型**
 ```bash
 open training_system/figma_prototype/index.html
 ```
 
-### 浏览作品集网站
+**浏览作品集网站**
 ```bash
 open training_system/portfolio/index.html
 ```
 
-### 阅读设计规格
+**阅读设计规格**
 从 [`training_system/方案设计_v4.1.md`](training_system/方案设计_v4.1.md) 开始 — 冻结版技术蓝图。
 
 ---
 
-## 📈 设计评审方法论
+### 📈 设计评审方法论
 
 每一轮设计迭代均遵循标准化的四维评审流程：
 1. **架构可行性** — 在现有约束下能否实现？
@@ -362,10 +379,12 @@ open training_system/portfolio/index.html
 
 ---
 
-## 📄 许可
+### 📄 许可
 
 本作品为**求职作品集**，仅供展示用途。所有文档与代码均为 MediaStorm 产品经理岗位申请而原创。
 
 ---
 
 > **累计产出：11,000+ 行文档 | 13 页交互原型 | 6 页作品集网站 | 5 份飞书 PoC 材料**
+
+</details>
